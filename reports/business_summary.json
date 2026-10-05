@@ -6,15 +6,15 @@
       "total_balance_sep": 1537381257.0,
       "total_credit_limit": 5024529680.0,
       "portfolio_utilization": 0.30597515686284094,
-      "est_monthly_purchase_volume": 219027147.4360013,
-      "est_monthly_revenue": 21995435.694540024,
-      "est_monthly_contribution_before_losses": 17688855.22935994,
-      "ecl_next_month": 10249208.380000051,
-      "est_monthly_risk_adj_contribution": 7439646.849359939,
+      "est_monthly_purchase_volume": 219027147.43600136,
+      "est_monthly_revenue": 21995435.69454002,
+      "est_monthly_contribution_before_losses": 17688855.229359936,
+      "ecl_next_month": 10249208.380000047,
+      "est_monthly_risk_adj_contribution": 7439646.849359908,
       "actual_default_rate_oct": 0.2212,
-      "avg_predicted_pd": 0.2209649605813712,
-      "avg_predicted_dormancy": 0.013530668202585295,
-      "share_loss_making": 0.38106666666666666
+      "avg_predicted_pd": 0.22094693653941222,
+      "avg_predicted_dormancy": 0.013530668202585304,
+      "share_loss_making": 0.38103333333333333
     }
   ],
   "segment_summary": [
@@ -25,17 +25,17 @@
       "avg_credit_limit": 163811.784974737,
       "avg_utilization": 0.5298784956734749,
       "avg_payment_ratio": 0.2544692006588623,
-      "avg_monthly_purchases": 6490.485445870963,
+      "avg_monthly_purchases": 6490.485445870964,
       "actual_default_rate": 0.16325685413733124,
-      "avg_pd": 0.16570741302742586,
-      "avg_dormancy_score": 0.003470775675023307,
+      "avg_pd": 0.16569690731116193,
+      "avg_dormancy_score": 0.0034707756750233065,
       "active_in_sep": 12031,
-      "total_monthly_revenue": 13562089.004820038,
-      "total_ecl": 4191042.0746571985,
-      "total_risk_adj_contribution": 7123025.4735561125,
-      "avg_risk_adj_contribution": 589.9963118989574,
-      "share_loss_making": 0.09119522902344074,
-      "share_of_total_contribution": 0.9574413433574399
+      "total_monthly_revenue": 13562089.00482004,
+      "total_ecl": 4190133.1031516627,
+      "total_risk_adj_contribution": 7123934.445061688,
+      "avg_risk_adj_contribution": 590.0716015126056,
+      "share_loss_making": 0.09111239956928684,
+      "share_of_total_contribution": 0.9575635227463181
     },
     {
       "segment": "Heavy-spend revolvers",
@@ -44,17 +44,17 @@
       "avg_credit_limit": 97302.53353204174,
       "avg_utilization": 0.6141340323210194,
       "avg_payment_ratio": 0.3961386141778683,
-      "avg_monthly_purchases": 19209.58816517638,
+      "avg_monthly_purchases": 19209.58816517639,
       "actual_default_rate": 0.20268256333830104,
-      "avg_pd": 0.20144439456865804,
+      "avg_pd": 0.20146001068237487,
       "avg_dormancy_score": 0.0026216587883048903,
       "active_in_sep": 4008,
       "total_monthly_revenue": 3882351.503294991,
-      "total_ecl": 1812118.099775887,
-      "total_risk_adj_contribution": 1143426.8610874466,
-      "avg_risk_adj_contribution": 284.0106460723911,
-      "share_loss_making": 0.16145057128663687,
-      "share_of_total_contribution": 0.15369370135973887
+      "total_ecl": 1812943.4591772729,
+      "total_risk_adj_contribution": 1142601.5016860566,
+      "avg_risk_adj_contribution": 283.8056387695123,
+      "share_loss_making": 0.161698956780924,
+      "share_of_total_contribution": 0.1535827606903616
     },
     {
       "segment": "Transactors",
@@ -65,15 +65,15 @@
       "avg_payment_ratio": 0.8985076166833946,
       "avg_monthly_purchases": 6826.97023422922,
       "actual_default_rate": 0.14385183122127837,
-      "avg_pd": 0.13991362798608628,
-      "avg_dormancy_score": 0.027463048554120035,
+      "avg_pd": 0.1398837044290298,
+      "avg_dormancy_score": 0.027463048554120042,
       "active_in_sep": 6689,
-      "total_monthly_revenue": 1052335.881779998,
-      "total_ecl": 665851.0156713352,
-      "total_risk_adj_contribution": -176784.06715133504,
-      "avg_risk_adj_contribution": -24.618307638397862,
+      "total_monthly_revenue": 1052335.8817799983,
+      "total_ecl": 665884.5842177834,
+      "total_risk_adj_contribution": -176817.6356977809,
+      "avg_risk_adj_contribution": -24.62298227235495,
       "share_loss_making": 0.7221835398969503,
-      "share_of_total_contribution": -0.023762427267168568
+      "share_of_total_contribution": -0.023766939382746672
     },
     {
       "segment": "Delinquent revolvers",
@@ -84,15 +84,15 @@
       "avg_payment_ratio": 0.2267344548973268,
       "avg_monthly_purchases": 1794.3171856780723,
       "actual_default_rate": 0.6280101394169835,
-      "avg_pd": 0.6255544570164439,
+      "avg_pd": 0.6254011809716385,
       "avg_dormancy_score": 0.004991096833264703,
       "active_in_sep": 3154,
-      "total_monthly_revenue": 3213071.475570004,
-      "total_ecl": 3014207.18305976,
-      "total_risk_adj_contribution": -199690.75001309204,
-      "avg_risk_adj_contribution": -63.27336819172751,
+      "total_monthly_revenue": 3213071.4755700044,
+      "total_ecl": 3013997.918158364,
+      "total_risk_adj_contribution": -199481.48511169804,
+      "avg_risk_adj_contribution": -63.20706118875096,
       "share_loss_making": 0.4071609632446134,
-      "share_of_total_contribution": -0.026841428639892032
+      "share_of_total_contribution": -0.026813300301862998
     },
     {
       "segment": "Dormant / low use",
@@ -103,15 +103,15 @@
       "avg_payment_ratio": 0.960070954746208,
       "avg_monthly_purchases": 2424.9092045454577,
       "actual_default_rate": 0.234006734006734,
-      "avg_pd": 0.23523525772044265,
+      "avg_pd": 0.23529750913471809,
       "avg_dormancy_score": 0.07066175443167821,
       "active_in_sep": 1724,
       "total_monthly_revenue": 285587.8290750001,
-      "total_ecl": 565990.0068358734,
-      "total_risk_adj_contribution": -450330.6681192064,
-      "avg_risk_adj_contribution": -126.35540631852031,
-      "share_loss_making": 0.9006734006734006,
-      "share_of_total_contribution": -0.06053118881011816
+      "total_ecl": 566249.3152949525,
+      "total_risk_adj_contribution": -450589.97657828574,
+      "avg_risk_adj_contribution": -126.42816402308803,
+      "share_loss_making": 0.9003928170594837,
+      "share_of_total_contribution": -0.06056604375206993
     }
   ],
   "risk_by_group": [
@@ -120,305 +120,305 @@
       "grp": "21-24",
       "customers": 2685,
       "actual_default_rate": 0.2718808193668529,
-      "avg_pd": 0.2726497892044889,
-      "total_ecl": 596555.658907291,
-      "total_ead": 88977075.30000015,
-      "ecl_rate": 0.006704599548770402
+      "avg_pd": 0.27261099263560096,
+      "total_ecl": 596531.778155181,
+      "total_ead": 88977075.30000013,
+      "ecl_rate": 0.006704331156580285
     },
     {
       "dimension": "Age band",
       "grp": "25-34",
       "customers": 13011,
       "actual_default_rate": 0.20298209207593576,
-      "avg_pd": 0.20503708669779344,
-      "total_ecl": 4238110.103967435,
-      "total_ead": 833318033.2000012,
-      "ecl_rate": 0.0050858255013308505
+      "avg_pd": 0.20502115810961222,
+      "total_ecl": 4239147.976575424,
+      "total_ead": 833318033.2000014,
+      "ecl_rate": 0.0050870709713274655
     },
     {
       "dimension": "Age band",
       "grp": "35-44",
       "customers": 9018,
       "actual_default_rate": 0.218562874251497,
-      "avg_pd": 0.2154518936914122,
-      "total_ecl": 3405434.1139431847,
-      "total_ead": 620593836.0999968,
-      "ecl_rate": 0.0054873798543407775
+      "avg_pd": 0.2154725687611239,
+      "total_ecl": 3405183.402999,
+      "total_ead": 620593836.0999969,
+      "ecl_rate": 0.005486975868787584
     },
     {
       "dimension": "Age band",
       "grp": "45-54",
       "customers": 4233,
       "actual_default_rate": 0.23931018190408693,
-      "avg_pd": 0.23714204698312724,
-      "total_ecl": 1579596.7563412997,
+      "avg_pd": 0.23708922366897908,
+      "total_ecl": 1578895.7672749353,
       "total_ead": 276120728.2000001,
-      "ecl_rate": 0.005720674310250132
+      "ecl_rate": 0.0057181356052751955
     },
     {
       "dimension": "Age band",
       "grp": "55+",
       "customers": 1053,
       "actual_default_rate": 0.2668566001899335,
-      "avg_pd": 0.26816632119031697,
-      "total_ecl": 429511.74684083986,
+      "avg_pd": 0.26798384037325707,
+      "total_ecl": 429449.4549954812,
       "total_ead": 69658110.10000002,
-      "ecl_rate": 0.006165997702553801
+      "ecl_rate": 0.006165103451399567
     },
     {
       "dimension": "Credit limit tier",
       "grp": "1. <50k",
       "customers": 4311,
       "actual_default_rate": 0.3607051728137323,
-      "avg_pd": 0.3579130526281601,
-      "total_ecl": 670005.8978290699,
-      "total_ead": 69316983.80000007,
-      "ecl_rate": 0.009665825907287517
+      "avg_pd": 0.3577475350397265,
+      "total_ecl": 669710.5388693349,
+      "total_ead": 69316983.80000009,
+      "ecl_rate": 0.009661564917504879
     },
     {
       "dimension": "Credit limit tier",
       "grp": "2. 50k-150k",
       "customers": 10979,
       "actual_default_rate": 0.2520265962291648,
-      "avg_pd": 0.2512104990473583,
-      "total_ecl": 3610272.29923236,
-      "total_ead": 525237515.1999983,
-      "ecl_rate": 0.006873599456919317
+      "avg_pd": 0.25119120097011116,
+      "total_ecl": 3610997.1459533316,
+      "total_ead": 525237515.19999826,
+      "ecl_rate": 0.006874979492998225
     },
     {
       "dimension": "Credit limit tier",
       "grp": "3. 150k-300k",
       "customers": 9593,
       "actual_default_rate": 0.16824768060043782,
-      "avg_pd": 0.16994912037245416,
-      "total_ecl": 3578075.401285078,
-      "total_ead": 718817570.0999974,
-      "ecl_rate": 0.004977723903976525
+      "avg_pd": 0.16997219464736468,
+      "total_ecl": 3577919.6403967245,
+      "total_ead": 718817570.0999976,
+      "ecl_rate": 0.004977507213546527
     },
     {
       "dimension": "Credit limit tier",
       "grp": "4. 300k+",
       "customers": 5117,
       "actual_default_rate": 0.13679890560875513,
-      "avg_pd": 0.1363345059189507,
-      "total_ecl": 2390854.781653544,
-      "total_ead": 575295713.7999986,
-      "ecl_rate": 0.004155871014336679
+      "avg_pd": 0.13636642836097362,
+      "total_ecl": 2390581.0547806597,
+      "total_ead": 575295713.7999985,
+      "ecl_rate": 0.004155395212299018
     },
     {
       "dimension": "Education",
       "grp": "Graduate school",
       "customers": 10585,
       "actual_default_rate": 0.19234766178554558,
-      "avg_pd": 0.19154371081858443,
-      "total_ecl": 3377809.1343164267,
-      "total_ead": 691436607.1999992,
-      "ecl_rate": 0.004885204368908096
+      "avg_pd": 0.19153690345800573,
+      "total_ecl": 3377518.8766193627,
+      "total_ead": 691436607.1999993,
+      "ecl_rate": 0.00488478457959691
     },
     {
       "dimension": "Education",
       "grp": "High school",
       "customers": 4917,
       "actual_default_rate": 0.2515761643278422,
-      "avg_pd": 0.2548462464998274,
-      "total_ecl": 1673706.3263728463,
+      "avg_pd": 0.2547286489271741,
+      "total_ecl": 1673052.321077254,
       "total_ead": 273188831.30000013,
-      "ecl_rate": 0.00612655472922639
+      "ecl_rate": 0.006124160761316061
     },
     {
       "dimension": "Education",
       "grp": "Other",
       "customers": 123,
       "actual_default_rate": 0.056910569105691054,
-      "avg_pd": 0.10180674673356774,
-      "total_ecl": 22852.924663969578,
+      "avg_pd": 0.10221406694269393,
+      "total_ecl": 22917.269406283773,
       "total_ead": 8800166.299999997,
-      "ecl_rate": 0.0025968741822492134
+      "ecl_rate": 0.0026041859466091884
     },
     {
       "dimension": "Education",
       "grp": "University",
       "customers": 14030,
       "actual_default_rate": 0.23734853884533144,
-      "avg_pd": 0.2354411715855816,
-      "total_ecl": 5088641.207289108,
-      "total_ead": 884855897.3000011,
-      "ecl_rate": 0.0057508134633179235
+      "avg_pd": 0.2354312456348077,
+      "total_ecl": 5088593.646711293,
+      "total_ead": 884855897.3000013,
+      "ecl_rate": 0.005750759713800108
     },
     {
       "dimension": "Education",
       "grp": "Unknown",
       "customers": 345,
       "actual_default_rate": 0.07536231884057971,
-      "avg_pd": 0.09454428171845032,
-      "total_ecl": 86198.7873577097,
+      "avg_pd": 0.09512028931646369,
+      "total_ecl": 87126.26618584938,
       "total_ead": 30386280.799999982,
-      "ecl_rate": 0.0028367666291594907
+      "ecl_rate": 0.002867289575822304
     },
     {
       "dimension": "Marital status",
       "grp": "Married",
       "customers": 13659,
       "actual_default_rate": 0.23471703638626545,
-      "avg_pd": 0.2254487365870776,
-      "total_ecl": 5102692.830596261,
-      "total_ead": 905206535.4999983,
-      "ecl_rate": 0.005637048154737135
+      "avg_pd": 0.22543206065240018,
+      "total_ecl": 5103151.523890292,
+      "total_ead": 905206535.4999982,
+      "ecl_rate": 0.005637554882512558
     },
     {
       "dimension": "Marital status",
       "grp": "Other",
       "customers": 323,
       "actual_default_rate": 0.26006191950464397,
-      "avg_pd": 0.24804368932632737,
-      "total_ecl": 90273.25778128956,
+      "avg_pd": 0.24808769402934824,
+      "total_ecl": 90324.00162229512,
       "total_ead": 15759285.200000014,
-      "ecl_rate": 0.0057282583972329834
+      "ecl_rate": 0.005731478330139938
     },
     {
       "dimension": "Marital status",
       "grp": "Single",
       "customers": 15964,
       "actual_default_rate": 0.20928338762214985,
-      "avg_pd": 0.21648542200777526,
-      "total_ecl": 5046128.092125676,
+      "avg_pd": 0.21646534999045172,
+      "total_ecl": 5045625.852483917,
       "total_ead": 965992385.7000026,
-      "ecl_rate": 0.005223776260378097
+      "ecl_rate": 0.00522325633946651
     },
     {
       "dimension": "Marital status",
       "grp": "Unknown",
       "customers": 54,
       "actual_default_rate": 0.09259259259259259,
-      "avg_pd": 0.24913214469911496,
-      "total_ecl": 10114.199496797604,
+      "avg_pd": 0.24900754281883317,
+      "total_ecl": 10107.002003550242,
       "total_ead": 1709576.4999999995,
-      "ecl_rate": 0.005916201759206217
+      "ecl_rate": 0.005911991656150073
     },
     {
       "dimension": "Segment",
       "grp": "Delinquent revolvers",
       "customers": 3156,
       "actual_default_rate": 0.6280101394169835,
-      "avg_pd": 0.6255544570164439,
-      "total_ecl": 3014207.18305976,
-      "total_ead": 177498230.50000012,
-      "ecl_rate": 0.01698161820863762
+      "avg_pd": 0.6254011809716385,
+      "total_ecl": 3013997.918158364,
+      "total_ead": 177498230.5000001,
+      "ecl_rate": 0.016980439239693505
     },
     {
       "dimension": "Segment",
       "grp": "Dormant / low use",
       "customers": 3564,
       "actual_default_rate": 0.234006734006734,
-      "avg_pd": 0.23523525772044265,
-      "total_ecl": 565990.0068358734,
-      "total_ead": 96722390.59999987,
-      "ecl_rate": 0.005851695799957555
+      "avg_pd": 0.23529750913471809,
+      "total_ecl": 566249.3152949525,
+      "total_ead": 96722390.59999989,
+      "ecl_rate": 0.005854376755809354
     },
     {
       "dimension": "Segment",
       "grp": "Heavy-spend revolvers",
       "customers": 4026,
       "actual_default_rate": 0.20268256333830104,
-      "avg_pd": 0.20144439456865804,
-      "total_ecl": 1812118.099775887,
-      "total_ead": 344270731.9999996,
-      "ecl_rate": 0.0052636426258154565
+      "avg_pd": 0.20146001068237487,
+      "total_ecl": 1812943.4591772729,
+      "total_ead": 344270731.9999995,
+      "ecl_rate": 0.005266040039608349
     },
     {
       "dimension": "Segment",
       "grp": "Revolvers",
       "customers": 12073,
       "actual_default_rate": 0.16325685413733124,
-      "avg_pd": 0.16570741302742586,
-      "total_ecl": 4191042.0746571985,
-      "total_ead": 1047537934.1999991,
-      "ecl_rate": 0.004000849933761952
+      "avg_pd": 0.16569690731116193,
+      "total_ecl": 4190133.1031516627,
+      "total_ead": 1047537934.199999,
+      "ecl_rate": 0.003999982211958417
     },
     {
       "dimension": "Segment",
       "grp": "Transactors",
       "customers": 7181,
       "actual_default_rate": 0.14385183122127837,
-      "avg_pd": 0.13991362798608628,
-      "total_ecl": 665851.0156713352,
+      "avg_pd": 0.1398837044290298,
+      "total_ecl": 665884.5842177834,
       "total_ead": 222638495.6000013,
-      "ecl_rate": 0.002990727249916484
+      "ecl_rate": 0.0029908780259373055
     },
     {
       "dimension": "Sex",
       "grp": "Female",
       "customers": 18112,
       "actual_default_rate": 0.20776280918727916,
-      "avg_pd": 0.21214902514976858,
-      "total_ecl": 5814584.65176706,
+      "avg_pd": 0.21214857960275454,
+      "total_ecl": 5815467.027126455,
       "total_ead": 1111960683.2000036,
-      "ecl_rate": 0.005229127917575136
+      "ecl_rate": 0.0052299214486529215
     },
     {
       "dimension": "Sex",
       "grp": "Male",
       "customers": 11888,
       "actual_default_rate": 0.2416722745625841,
-      "avg_pd": 0.23439650689170283,
-      "total_ecl": 4434623.7282329835,
-      "total_ead": 776707099.6999961,
-      "ecl_rate": 0.0057095187232688634
+      "avg_pd": 0.23435170107817288,
+      "total_ecl": 4433741.352873609,
+      "total_ead": 776707099.6999962,
+      "ecl_rate": 0.005708382676798173
     }
   ],
   "profit_sensitivity": [
     {
       "annual_loss_rate": 0.04,
-      "monthly_revenue": 21995435.694540024,
-      "monthly_ecl": 5124604.190000026,
+      "monthly_revenue": 21995435.69454002,
+      "monthly_ecl": 5124604.190000024,
       "monthly_risk_adj_contribution": 12564251.039359946,
-      "share_loss_making": 0.2441
+      "share_loss_making": 0.24413333333333334
     },
     {
       "annual_loss_rate": 0.08,
-      "monthly_revenue": 21995435.694540024,
-      "monthly_ecl": 10249208.380000051,
-      "monthly_risk_adj_contribution": 7439646.849359939,
-      "share_loss_making": 0.38106666666666666
+      "monthly_revenue": 21995435.69454002,
+      "monthly_ecl": 10249208.380000047,
+      "monthly_risk_adj_contribution": 7439646.849359908,
+      "share_loss_making": 0.38103333333333333
     },
     {
       "annual_loss_rate": 0.12,
-      "monthly_revenue": 21995435.694540024,
-      "monthly_ecl": 15373812.5700001,
-      "monthly_risk_adj_contribution": 2315042.659359965,
-      "share_loss_making": 0.48723333333333335
+      "monthly_revenue": 21995435.69454002,
+      "monthly_ecl": 15373812.570000071,
+      "monthly_risk_adj_contribution": 2315042.6593599613,
+      "share_loss_making": 0.4872
     }
   ],
   "retention_cost_sensitivity": [
     {
       "contact_cost": 10,
       "save_rate": 0.1,
-      "customers_worth_contacting": 497,
-      "total_expected_net_benefit": 9356.44695012635
+      "customers_worth_contacting": 496,
+      "total_expected_net_benefit": 9355.256862827993
     },
     {
       "contact_cost": 10,
       "save_rate": 0.2,
       "customers_worth_contacting": 960,
-      "total_expected_net_benefit": 25637.55600596768
+      "total_expected_net_benefit": 25642.592835291023
     },
     {
       "contact_cost": 50,
       "save_rate": 0.2,
-      "customers_worth_contacting": 160,
-      "total_expected_net_benefit": 10230.409019479763
+      "customers_worth_contacting": 161,
+      "total_expected_net_benefit": 10221.614871649945
     },
     {
       "contact_cost": 100,
       "save_rate": 0.2,
-      "customers_worth_contacting": 56,
-      "total_expected_net_benefit": 5507.093341509327
+      "customers_worth_contacting": 57,
+      "total_expected_net_benefit": 5500.606636682633
     },
     {
       "contact_cost": 100,
       "save_rate": 0.3,
       "customers_worth_contacting": 104,
-      "total_expected_net_benefit": 12091.84094226095
+      "total_expected_net_benefit": 12076.946165672
     }
   ],
   "significance_tests": {

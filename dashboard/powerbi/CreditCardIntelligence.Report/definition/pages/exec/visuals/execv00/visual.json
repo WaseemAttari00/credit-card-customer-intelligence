@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "execv00",
+  "position": {
+    "x": 16,
+    "y": 4,
+    "z": 0,
+    "height": 66,
+    "width": 860,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Executive overview",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "fontWeight": "bold",
+                      "color": "#0b0b0b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "30,000 Taiwanese credit card customers, Apr-Sep 2005. How big is the book, is it getting riskier, and where does the value come from? NT$ figures marked est. are estimates.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#52514e"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

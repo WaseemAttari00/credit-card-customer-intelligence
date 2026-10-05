@@ -61,8 +61,11 @@ def make_pipeline(kind: str, amount_cols, other_cols, seed: int) -> Pipeline:
         est = RandomForestClassifier(n_estimators=200, max_features="sqrt", n_jobs=-1, random_state=seed)
     elif kind in ("lightgbm", "lightgbm_weighted"):
         prep = make_preprocessor(amount_cols, other_cols, scale=False)
+        # deterministic + force_row_wise: multithreaded histogram sums are otherwise not bit-for-bit
+        # reproducible, which shifted a few borderline customers between reruns
         est = LGBMClassifier(n_estimators=400, learning_rate=0.03, subsample=0.8, subsample_freq=1,
                              colsample_bytree=0.8, reg_lambda=1.0, random_state=seed, verbose=-1, n_jobs=4,
+                             deterministic=True, force_row_wise=True,
                              class_weight="balanced" if kind == "lightgbm_weighted" else None)
     else:
         raise ValueError(kind)

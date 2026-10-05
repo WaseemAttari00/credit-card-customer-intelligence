@@ -1,0 +1,66 @@
+table retention_budget_curve
+	lineageTag: 35014945-1408-5bf6-9c3f-c39535e0798e
+
+	column contact_cost
+		dataType: int64
+		formatString: 0
+		lineageTag: 82da2889-6a6a-5a8e-bf9f-3888d8fbf422
+		summarizeBy: none
+		sourceColumn: contact_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_cost_label
+		dataType: string
+		lineageTag: 7900d8bb-588c-5bc4-aeba-c640aff11378
+		summarizeBy: none
+		sourceColumn: contact_cost_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column customers_contacted
+		dataType: int64
+		formatString: 0
+		lineageTag: c25b5f19-ec65-591d-acb4-c12567db7eec
+		summarizeBy: none
+		sourceColumn: customers_contacted
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_active_contacted
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2d020173-0f31-55bb-903e-f5d520e5bfb6
+		summarizeBy: none
+		sourceColumn: share_of_active_contacted
+
+		annotation SummarizationSetBy = Automatic
+
+	column cum_benefit_model
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 53b7bcfe-7d0c-575d-b59f-a2d7fb5f420d
+		summarizeBy: sum
+		sourceColumn: cum_benefit_model
+
+		annotation SummarizationSetBy = Automatic
+
+	column cum_benefit_random
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 2deb9471-7c9d-5d13-bee2-322491a5e713
+		summarizeBy: sum
+		sourceColumn: cum_benefit_random
+
+		annotation SummarizationSetBy = Automatic
+
+	partition retention_budget_curve = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "retention_budget_curve"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

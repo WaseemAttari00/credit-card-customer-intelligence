@@ -38,11 +38,12 @@ def read_sql(query: str, conn: psycopg.Connection | None = None, params=None) ->
         if own:
             conn.close()
     # numeric columns come back as Decimal; convert to float for analysis
-    for c in df.columns:
-        if df[c].dtype == object:
-            non_null = df[c].dropna()
+    for i in range(df.shape[1]):  # by position, so duplicate column names don't break it
+        col = df.iloc[:, i]
+        if col.dtype == object:
+            non_null = col.dropna()
             if len(non_null) and type(non_null.iloc[0]).__name__ == "Decimal":
-                df[c] = df[c].astype(float)
+                df.isetitem(i, col.astype(float))
     return df
 
 

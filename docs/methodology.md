@@ -158,7 +158,26 @@ who responds to an offer, so a real campaign needs a randomised holdout to measu
 
 ## 9. Testing
 
-61 pytest tests: validation rules on synthetic bad rows, grain/PK checks, month mapping against the raw file,
+65 pytest tests: validation rules on synthetic bad rows, grain/PK checks, month mapping against the raw file,
 independent pandas recalculation of SQL features, label-leakage guard on the feature SQL, train/test timing,
-profit identities, the loss-calibration identity, retention business rules, model input integrity and saved
-model sanity checks.
+profit identities, the loss-calibration identity, retention business rules, model input integrity, saved
+model sanity checks, and consistency checks between the Power BI report and its data model.
+
+**Reproducibility.** Seeds are fixed everywhere. I found that LightGBM's multithreaded training was not
+bit-for-bit reproducible: the headline metrics were identical across runs, but out-of-fold PDs differed in the
+last decimals, which moved a handful of customers across the 50% PD cut-off (56 vs 57 "Contact now"). Setting
+`deterministic=True` and `force_row_wise=True` fixed it; two consecutive runs now produce identical checksums for
+all PD and dormancy scores.
+
+## 10. Power BI layer
+
+The dashboard is a Power BI Project (`.pbip`), which stores the semantic model as TMDL and the report as PBIR
+JSON - both plain text. `scripts/build_powerbi.py` generates it from the warehouse: table definitions come from
+Postgres `information_schema`, while the 42 DAX measures and 52 visuals are defined in the script. I validated the
+generated report files against Microsoft's published JSON schemas before opening them, and a test checks that
+every field and measure reference resolves. Visuals use explicit measures (not implicit column sums), and the
+model is a small star around `customer_360`; aggregated tables (curves, lift, roll rates) stay disconnected.
+
+Two issues only showed up once the report rendered: the roll-rate matrix showed 100% everywhere because a
+`CALCULATE` filter argument replaced the matrix's column filter (fixed with `KEEPFILTERS`), and the custom
+currency format needed escaped letters (`\N\T\$#,0`).

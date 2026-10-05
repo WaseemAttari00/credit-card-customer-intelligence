@@ -1,6 +1,6 @@
-"""Export step: Power BI tables, business-analysis tables, the data-quality report and
-static previews of the dashboard pages. Everything is read from Postgres, so the files
-always reflect the latest pipeline run."""
+"""Export step: business-analysis tables, significance tests and the data-quality report.
+Everything is read from Postgres, so the files always reflect the latest pipeline run.
+(The Power BI project reads the warehouse directly; see scripts/build_powerbi.py.)"""
 from __future__ import annotations
 
 import json
@@ -15,37 +15,8 @@ from src.db import connect, read_sql
 
 log = logging.getLogger(__name__)
 
-POWERBI_TABLES = {
-    "customer_360": "SELECT * FROM mart.customer_360",
-    "dim_month": "SELECT * FROM core.dim_month",
-    "customer_monthly": """SELECT customer_id, month_index, bill_amount, payment_amount, est_new_charges,
-                                  utilization, payment_ratio, delinquency_bucket, is_delinquent, is_inactive, util_3m_avg
-                           FROM mart.customer_monthly_metrics""",
-    "portfolio_monthly": "SELECT * FROM mart.portfolio_monthly",
-    "roll_rates": "SELECT * FROM mart.roll_rates",
-    "delinquency_cohorts": "SELECT * FROM mart.delinquency_cohorts",
-    "retention_priority": "SELECT * FROM mart.retention_priority",
-    "segment_profile": "SELECT * FROM ml.segment_profile",
-    "model_lift": "SELECT * FROM ml.model_lift",
-    "model_comparison": "SELECT * FROM ml.model_comparison",
-    "model_calibration": "SELECT * FROM ml.model_calibration",
-    "feature_importance": "SELECT * FROM ml.feature_importance",
-    "assumptions": "SELECT * FROM mart.assumptions",
-    "dq_check_results": """SELECT * FROM audit.dq_check_results
-                           WHERE run_id = (SELECT max(run_id) FROM audit.pipeline_runs WHERE status = 'loaded')""",
-}
-
 ANALYSIS_QUERIES = ["executive_kpis", "segment_summary", "risk_by_group", "retention_budget_curve", "value_concentration",
                     "profit_sensitivity", "retention_cost_sensitivity"]
-
-
-def export_powerbi(conn) -> None:
-    out = path("dashboard/powerbi/data")
-    out.mkdir(parents=True, exist_ok=True)
-    for name, sql in POWERBI_TABLES.items():
-        df = read_sql(sql, conn)
-        df.to_csv(out / f"{name}.csv", index=False)
-        log.info("exported %s (%s rows)", name, len(df))
 
 
 def run_analysis(conn) -> dict[str, pd.DataFrame]:
@@ -130,10 +101,7 @@ def write_dq_report(conn) -> None:
 
 
 def run() -> None:
-    from src.analytics.dashboard_preview import render_all
-
     with connect() as conn:
-        export_powerbi(conn)
         analysis = run_analysis(conn)
         sig = significance_checks(conn)
         write_dq_report(conn)
@@ -143,5 +111,4 @@ def run() -> None:
     summary["significance_tests"] = sig
     with open(path("reports/business_summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, default=float)
-    render_all()
     log.info("export complete")

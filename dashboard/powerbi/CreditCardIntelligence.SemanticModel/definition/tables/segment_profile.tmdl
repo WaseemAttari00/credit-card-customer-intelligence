@@ -1,0 +1,93 @@
+table segment_profile
+	lineageTag: dd6c771e-0194-5623-9efd-56e7f0011559
+
+	column segment
+		dataType: string
+		lineageTag: 69c355c8-97ec-5793-80dc-b22800034f6d
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6ffba140-344e-55ae-80ba-79522e973241
+		summarizeBy: none
+		sourceColumn: customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_utilization
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8326a262-948c-5807-8f57-d3952fcd0ad0
+		summarizeBy: none
+		sourceColumn: avg_utilization
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_payment_ratio
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 53d8c65c-a86e-57ae-b981-6148005757bf
+		summarizeBy: none
+		sourceColumn: avg_payment_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_months_paid_in_full
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 784dc575-c7bc-5552-9068-1830c62540b2
+		summarizeBy: none
+		sourceColumn: share_months_paid_in_full
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_months_inactive
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f3d4005b-4262-5906-8125-dbafdbd92b67
+		summarizeBy: none
+		sourceColumn: share_months_inactive
+
+		annotation SummarizationSetBy = Automatic
+
+	column new_charges_to_limit
+		dataType: double
+		formatString: #,0.##
+		lineageTag: 0fc5c9ff-9c6b-5735-bb44-2fda5361b33b
+		summarizeBy: none
+		sourceColumn: new_charges_to_limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_months_60plus
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c5ab1116-9275-5965-a80f-c9dd35f1d99a
+		summarizeBy: none
+		sourceColumn: share_months_60plus
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_credit_limit
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 75f9a07c-26f9-5ec2-8d69-13ec5159f79a
+		summarizeBy: sum
+		sourceColumn: avg_credit_limit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition segment_profile = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "ml", Item = "segment_profile"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

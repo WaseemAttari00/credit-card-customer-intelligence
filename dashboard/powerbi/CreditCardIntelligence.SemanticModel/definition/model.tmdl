@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["PgServer", "PgDatabase", "customer_360", "customer_monthly", "dim_month", "retention_priority", "segment_profile", "roll_rates", "model_lift", "model_comparison", "assumptions", "retention_budget_curve", "value_concentration"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table customer_360
+ref table customer_monthly
+ref table dim_month
+ref table retention_priority
+ref table segment_profile
+ref table roll_rates
+ref table model_lift
+ref table model_comparison
+ref table assumptions
+ref table retention_budget_curve
+ref table value_concentration
+ref table _Measures
+
+ref cultureInfo en-US

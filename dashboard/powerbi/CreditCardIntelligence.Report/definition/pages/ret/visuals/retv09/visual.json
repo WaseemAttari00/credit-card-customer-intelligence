@@ -1,0 +1,156 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "retv09",
+  "position": {
+    "x": 424,
+    "y": 164,
+    "z": 9,
+    "height": 246,
+    "width": 420,
+    "tabOrder": 9
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_budget_curve"
+                    }
+                  },
+                  "Property": "share_of_active_contacted"
+                }
+              },
+              "queryRef": "retention_budget_curve.share_of_active_contacted",
+              "nativeQueryRef": "share_of_active_contacted"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_budget_curve"
+                    }
+                  },
+                  "Property": "contact_cost"
+                }
+              },
+              "queryRef": "retention_budget_curve.contact_cost",
+              "nativeQueryRef": "contact_cost",
+              "displayName": "Contact cost (NT$)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Cumulative Net Benefit"
+                }
+              },
+              "queryRef": "_Measures.Cumulative Net Benefit",
+              "nativeQueryRef": "Cumulative Net Benefit"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "retention_budget_curve"
+                  }
+                },
+                "Property": "share_of_active_contacted"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Contact cost (NT$)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'What if only 10% can be contacted? Cumulative expected net benefit by contact cost (NT$)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

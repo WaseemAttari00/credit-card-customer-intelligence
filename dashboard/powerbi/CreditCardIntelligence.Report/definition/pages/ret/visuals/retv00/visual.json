@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "retv00",
+  "position": {
+    "x": 16,
+    "y": 4,
+    "z": 0,
+    "height": 66,
+    "width": 860,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Retention decision support",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "fontWeight": "bold",
+                      "color": "#0b0b0b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Which customers should we prioritise, and why? Expected net benefit = P(dormant) x save rate x 12-month risk-adjusted value - contact cost. High-PD customers go to risk management instead.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#52514e"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

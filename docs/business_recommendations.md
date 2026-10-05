@@ -26,6 +26,10 @@ sizes are observed.
 4. **Dormancy risk sits with low-value customers.** The customers most likely to go dormant are dormant/low-use
    customers and transactors with small balances. Valuable revolvers rarely go dormant (0.3%). The total 12-month
    value at risk from dormancy is about NT$0.3M, compared with about NT$10M of expected credit loss *per month*.
+   Over half of that value at risk (NT$0.16M) still sits with ordinary revolvers: each one is unlikely to go
+   dormant, but there are 12,000 of them and they are the most valuable customers. So the few revolvers who do
+   show early signs of winding down (falling balance and utilization) are the best retention targets - which is
+   why 31 of the 57 "Contact now" customers are revolvers.
 5. **Lower credit limits go with much higher default rates** (36% under NT$50k vs 14% at NT$300k+). This
    reflects how the bank assigned limits, not an effect of the limit itself.
 

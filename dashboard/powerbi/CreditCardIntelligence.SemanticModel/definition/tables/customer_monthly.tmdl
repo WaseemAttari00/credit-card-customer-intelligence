@@ -1,0 +1,101 @@
+table customer_monthly
+	lineageTag: 4bc7464f-5923-5817-a8a9-b1b60ccfddf4
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: aaa6c046-77d1-5c96-be95-0e3488912388
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_index
+		dataType: int64
+		formatString: 0
+		lineageTag: cb5608ba-008e-5f89-95f4-8b721e0fa7c6
+		summarizeBy: none
+		sourceColumn: month_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column bill_amount
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 4e9573f4-15df-5e26-997a-cb1e942edc06
+		summarizeBy: sum
+		sourceColumn: bill_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_amount
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 972c4e49-6b4e-5cd2-9637-2223211efee0
+		summarizeBy: sum
+		sourceColumn: payment_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_new_charges
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: cb5de65b-ef53-53be-8aa6-a7e43282b77a
+		summarizeBy: sum
+		sourceColumn: est_new_charges
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3c821c83-379e-5a95-8394-74360b7ea0b2
+		summarizeBy: none
+		sourceColumn: utilization
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_ratio
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 41bc22e2-c7e4-5f4f-a393-7a1a510f90e7
+		summarizeBy: none
+		sourceColumn: payment_ratio
+
+		annotation SummarizationSetBy = Automatic
+
+	column delinquency_bucket
+		dataType: string
+		lineageTag: 69745f2b-0e5d-5000-bdf4-b839d7eaa076
+		summarizeBy: none
+		sourceColumn: delinquency_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_delinquent
+		dataType: boolean
+		lineageTag: 6ce26038-d574-5838-bde2-287a5bc99717
+		summarizeBy: none
+		sourceColumn: is_delinquent
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_inactive
+		dataType: boolean
+		lineageTag: dd3982f6-cfd1-58e8-92cc-9b767c7cc1fd
+		summarizeBy: none
+		sourceColumn: is_inactive
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer_monthly = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "customer_monthly_metrics"]}[Data],
+				    Kept = Table.SelectColumns(Data, {"customer_id", "month_index", "bill_amount", "payment_amount", "est_new_charges", "utilization", "payment_ratio", "delinquency_bucket", "is_delinquent", "is_inactive"})
+				in
+				    Kept
+
+	annotation PBI_ResultType = Table

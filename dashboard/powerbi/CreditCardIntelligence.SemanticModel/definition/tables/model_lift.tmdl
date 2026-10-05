@@ -1,0 +1,84 @@
+table model_lift
+	lineageTag: ab03873d-3d27-510d-8047-c66bec58d210
+
+	column decile
+		dataType: int64
+		formatString: 0
+		lineageTag: 41c25b8c-3d09-5ca0-a315-2c5375c91623
+		summarizeBy: none
+		sourceColumn: decile
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		formatString: #,0
+		lineageTag: a4c72f5b-21a8-5a55-aae7-37c7b848d6b3
+		summarizeBy: none
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column positives
+		dataType: int64
+		formatString: #,0
+		lineageTag: 575e26c0-0bd2-54ac-b4ba-5553525e2bd7
+		summarizeBy: none
+		sourceColumn: positives
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_predicted
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 60db75fd-013c-5395-9883-a44b91fb9ab1
+		summarizeBy: none
+		sourceColumn: mean_predicted
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e38c9561-13e8-584c-a88e-d14196e1e93a
+		summarizeBy: none
+		sourceColumn: observed_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column lift
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b7064d2f-01dc-55f8-b1cb-53c55366d2d9
+		summarizeBy: none
+		sourceColumn: lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column cum_capture
+		dataType: double
+		formatString: #,0.##
+		lineageTag: 1de75358-6230-5294-bbb4-c2cc86f3d5e1
+		summarizeBy: none
+		sourceColumn: cum_capture
+
+		annotation SummarizationSetBy = Automatic
+
+	column task
+		dataType: string
+		lineageTag: 5394a14a-1da5-55e1-b623-58352d3cbbf0
+		summarizeBy: none
+		sourceColumn: task
+
+		annotation SummarizationSetBy = Automatic
+
+	partition model_lift = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "ml", Item = "model_lift"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

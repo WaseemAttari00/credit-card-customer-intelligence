@@ -1,0 +1,46 @@
+table model_comparison
+	lineageTag: 9d40c502-0431-5e10-86dd-8058ddfcf19a
+
+	column task
+		dataType: string
+		lineageTag: e521a0bf-af7c-52ce-90bc-4e0763c08d19
+		summarizeBy: none
+		sourceColumn: task
+
+		annotation SummarizationSetBy = Automatic
+
+	column model
+		dataType: string
+		lineageTag: 01218def-6c2d-5656-a6a4-ff5f9abb9992
+		summarizeBy: none
+		sourceColumn: model
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric
+		dataType: string
+		lineageTag: 08669da3-b4f1-519c-9573-e4aefad335d3
+		summarizeBy: none
+		sourceColumn: metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		formatString: 0.####
+		lineageTag: 52c2b677-fea2-567a-8dba-469527c464f3
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition model_comparison = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "ml", Item = "model_comparison"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

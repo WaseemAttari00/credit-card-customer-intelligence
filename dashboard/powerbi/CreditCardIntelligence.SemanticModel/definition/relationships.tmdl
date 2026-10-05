@@ -1,0 +1,15 @@
+relationship 096a690f-aba9-5132-b9db-efda5394550c
+	fromColumn: customer_monthly.customer_id
+	toColumn: customer_360.customer_id
+
+relationship 1f192263-c5a0-59a6-988a-a9cf77b2d0c1
+	fromColumn: customer_monthly.month_index
+	toColumn: dim_month.month_index
+
+relationship fd2deb4c-73bc-523d-922b-a98f49905c87
+	fromColumn: retention_priority.customer_id
+	toColumn: customer_360.customer_id
+
+relationship 7f5d8fe6-8e9f-522b-98af-f569996f3c85
+	fromColumn: customer_360.segment
+	toColumn: segment_profile.segment

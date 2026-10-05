@@ -1,0 +1,49 @@
+table value_concentration
+	lineageTag: be776506-510d-5149-bcaf-e9ba806e0039
+
+	column top_percent_of_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: da6f11e2-62ca-5d50-8640-c81f83af0bb1
+		summarizeBy: none
+		sourceColumn: top_percent_of_customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column contribution
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: d6fbbdbf-5add-5acb-ac9b-26e6cb2a9ab0
+		summarizeBy: sum
+		sourceColumn: contribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column cum_contribution
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: d4665a37-7b8a-5ffa-b93b-433c394a6065
+		summarizeBy: sum
+		sourceColumn: cum_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column cum_share_of_total
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d8d718bd-c6d1-5a21-8948-628b9716a5f8
+		summarizeBy: none
+		sourceColumn: cum_share_of_total
+
+		annotation SummarizationSetBy = Automatic
+
+	partition value_concentration = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "value_concentration"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

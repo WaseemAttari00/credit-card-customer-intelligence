@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CreditCardIntelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0b129ffe-08ad-47a4-ba2a-9ab307451757"
+  }
+}

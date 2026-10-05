@@ -1,32 +1,32 @@
 feature,mean_abs_shap,feature_label,rank
-months_since_delinquent,0.2839206812056439,Months since last delinquency,1
-status_latest,0.20536439353596112,Sep repayment status,2
-max_status_6m,0.17049748722006675,Worst repayment status (6m),3
-available_credit,0.1657076840786818,Available credit,4
-new_charges_avg,0.11258191661433198,Avg new charges,5
-bill_latest,0.09255460978935298,Balance (Sep),6
-bill_avg_6m,0.09057439486067712,Average balance (6m),7
-payment_total_6m,0.08647872117600795,Total paid (6m),8
-months_60plus_6m,0.0792600810916298,Months 60+ days late (6m),9
-payment_ratio_min,0.07398464295951364,Lowest share of bill paid,10
-payment_latest,0.05614967814248984,Payment (Sep),11
-new_charges_trend,0.05522434442742612,New charges trend,12
-age,0.04719756616361373,Age,13
-util_latest,0.03477087230418823,Utilization (Sep),14
-util_max_6m,0.03405740577490678,Peak utilization (6m),15
-new_charges_to_limit,0.031541263877161094,Avg new charges / limit,16
-months_delinquent_6m,0.02993289517538029,Months delinquent (6m),17
-months_paid_in_full,0.02814799570704518,Months paid in full,18
-util_trend_6m,0.026903630548050995,Utilization trend (per month),19
-credit_limit,0.026146626687100213,Credit limit,20
-education,0.025667376915552306,Education,21
-payment_ratio_latest,0.022805530698358552,Share of bill paid (Sep),22
-util_avg_6m,0.018244577751213947,Average utilization (6m),23
-payment_ratio_avg,0.015093798146503214,Avg share of bill paid,24
-payment_to_limit_6m,0.014336751820032585,Total paid / limit,25
-months_missed_payment,0.011328929301664696,Months with no payment,26
-status_prev,0.006815227325793747,Aug repayment status,27
-months_inactive_5m,0.004978463990295115,Inactive months,28
-months_over_limit,0.004288344089365034,Months over limit,29
-months_credit_balance,0.002441152382441525,Months with credit balance,30
-delinquent_streak,0.0017659263652108994,Consecutive late months,31
+months_since_delinquent,0.28392175960116073,Months since last delinquency,1
+status_latest,0.20537609802713025,Sep repayment status,2
+max_status_6m,0.17060369396043595,Worst repayment status (6m),3
+available_credit,0.16548727972967753,Available credit,4
+new_charges_avg,0.11298684651152972,Avg new charges,5
+bill_latest,0.09204547727602215,Balance (Sep),6
+bill_avg_6m,0.09188544308963771,Average balance (6m),7
+payment_total_6m,0.08622853266817793,Total paid (6m),8
+months_60plus_6m,0.07907600283354038,Months 60+ days late (6m),9
+payment_ratio_min,0.07414912956093073,Lowest share of bill paid,10
+payment_latest,0.055882603996196954,Payment (Sep),11
+new_charges_trend,0.05511894514205511,New charges trend,12
+age,0.0472543430962106,Age,13
+util_latest,0.03499361702049351,Utilization (Sep),14
+util_max_6m,0.03421432961745723,Peak utilization (6m),15
+new_charges_to_limit,0.03165638118887823,Avg new charges / limit,16
+months_delinquent_6m,0.029855430208768064,Months delinquent (6m),17
+months_paid_in_full,0.02851428857424934,Months paid in full,18
+util_trend_6m,0.026824827398820063,Utilization trend (per month),19
+credit_limit,0.02616840910338726,Credit limit,20
+education,0.02547017186489425,Education,21
+payment_ratio_latest,0.02319377423114718,Share of bill paid (Sep),22
+util_avg_6m,0.018261243413346118,Average utilization (6m),23
+payment_ratio_avg,0.014824241811164342,Avg share of bill paid,24
+payment_to_limit_6m,0.014332318747050526,Total paid / limit,25
+months_missed_payment,0.0113970914345739,Months with no payment,26
+status_prev,0.006776710669994825,Aug repayment status,27
+months_inactive_5m,0.004961152143808065,Inactive months,28
+months_over_limit,0.004093974199813186,Months over limit,29
+months_credit_balance,0.0024356213400187916,Months with credit balance,30
+delinquent_streak,0.001754213245692927,Consecutive late months,31

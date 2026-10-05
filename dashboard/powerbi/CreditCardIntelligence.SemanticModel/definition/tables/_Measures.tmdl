@@ -1,0 +1,227 @@
+table _Measures
+	lineageTag: 48b86ba0-e290-57e0-b738-410b1299f9c0
+
+	measure Customers = DISTINCTCOUNT(customer_360[customer_id])
+		formatString: #,0
+		displayFolder: Portfolio
+		lineageTag: 92c9148b-a4d4-55f8-92aa-cbb253809362
+
+	measure 'Active Customers (Sep)' = CALCULATE([Customers], NOT ISBLANK(customer_360[churn_score]))
+		formatString: #,0
+		displayFolder: Portfolio
+		lineageTag: 260dba20-a267-5595-b184-cacc01f45ba4
+
+	measure 'Balance Outstanding (Sep)' = SUMX(customer_360, MAX(customer_360[balance_sep], 0))
+		formatString: \N\T\$#,0
+		displayFolder: Portfolio
+		lineageTag: 5d03b3e6-b728-53fa-aef3-324dde20b54b
+
+	measure 'Total Credit Limit' = SUM(customer_360[credit_limit])
+		formatString: \N\T\$#,0
+		displayFolder: Portfolio
+		lineageTag: 6ec2c39d-601d-5882-8710-f7581903a88e
+
+	measure 'Portfolio Utilization' = DIVIDE([Balance Outstanding (Sep)], [Total Credit Limit])
+		formatString: 0.0%
+		displayFolder: Portfolio
+		lineageTag: 9dfb40ee-d176-5062-b682-7f20744baa3b
+
+	measure 'Balance by Month' = SUMX(customer_monthly, MAX(customer_monthly[bill_amount], 0))
+		formatString: \N\T\$#,0
+		displayFolder: Portfolio
+		lineageTag: 03c72035-50aa-52c0-9733-cf6c1fab83d7
+
+	measure '60+ DPD Rate' = DIVIDE(CALCULATE(COUNTROWS(customer_monthly), customer_monthly[delinquency_bucket] IN {"2. 60 DPD", "3. 90+ DPD"}), COUNTROWS(customer_monthly))
+		formatString: 0.0%
+		displayFolder: Portfolio
+		lineageTag: 2bb6d9cb-b3b5-572d-a5d8-e5123352b0da
+
+	measure 'Est Monthly Revenue' = SUM(customer_360[est_monthly_revenue])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: 8f4a34ba-d11b-5612-81d3-afbc2d89f45f
+
+	measure 'Est Monthly Operating Cost' = SUM(customer_360[est_monthly_operating_cost])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: 352cb49f-6073-5ff0-803b-098ba737e03b
+
+	measure 'Est Contribution Before Losses' = SUM(customer_360[est_contribution_before_losses])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: c29b1784-5da5-5242-a41b-6e8e49096b8b
+
+	measure 'Expected Credit Loss (Next Month)' = SUM(customer_360[ecl_next_month])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: 86354fe8-b810-5eef-bc8f-453ff0103ccf
+
+	measure 'Est Risk-Adj Contribution' = SUM(customer_360[est_risk_adjusted_contribution])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: f436103b-96a3-522b-ab15-4cb687236c2b
+
+	measure 'Est Risk-Adj Contribution (Annualised)' = [Est Risk-Adj Contribution] * 12
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: 6a88f619-a37e-538f-902e-ec2a7a59df8e
+
+	measure 'Avg Risk-Adj Contribution per Customer' = DIVIDE([Est Risk-Adj Contribution], [Customers])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: eaa22222-af11-5e81-8f18-13b321595f46
+
+	measure 'Loss-Making Share' = DIVIDE(CALCULATE([Customers], customer_360[est_risk_adjusted_contribution] < 0), [Customers])
+		formatString: 0.0%
+		displayFolder: Economics (est.)
+		lineageTag: 05ad85b8-78a4-5c40-82b6-57dd77421578
+
+	measure 'ECL as % of Revenue' = DIVIDE([Expected Credit Loss (Next Month)], [Est Monthly Revenue])
+		formatString: 0.0%
+		displayFolder: Economics (est.)
+		lineageTag: 4e02eaba-a466-56cf-85d8-58f3c4fa3a69
+
+	measure 'Avg Est Monthly Purchases' = AVERAGE(customer_360[est_monthly_purchases])
+		formatString: \N\T\$#,0
+		displayFolder: Economics (est.)
+		lineageTag: 87a5380b-3040-5180-872a-1c73661efbc8
+
+	measure 'Avg Utilization (6m)' = AVERAGE(customer_360[utilization_avg_6m])
+		formatString: 0.0%
+		displayFolder: Customers
+		lineageTag: fb04bab3-2feb-52bd-8844-313e2d23111c
+
+	measure 'Avg Share of Bill Paid' = AVERAGE(customer_360[payment_ratio_avg])
+		formatString: 0.0%
+		displayFolder: Customers
+		lineageTag: e17e8838-1a17-59da-a9cb-e29b387e9d9b
+
+	measure 'Segment Avg Utilization' = AVERAGE(segment_profile[avg_utilization])
+		formatString: 0.0%
+		displayFolder: Customers
+		lineageTag: 039bdec3-19ce-5405-92e4-51671db4ca4c
+
+	measure 'Segment Avg Share of Bill Paid' = AVERAGE(segment_profile[avg_payment_ratio])
+		formatString: 0.0%
+		displayFolder: Customers
+		lineageTag: 4f0021f3-1e69-521a-b8f1-74333875c5b7
+
+	measure 'Segment Customers' = SUM(segment_profile[customers])
+		formatString: #,0
+		displayFolder: Customers
+		lineageTag: 48242f11-0afc-55da-8059-07defb5ca62b
+
+	measure 'Actual Default Rate (Oct)' = DIVIDE(CALCULATE([Customers], customer_360[actual_default_oct] = TRUE()), [Customers])
+		formatString: 0.0%
+		displayFolder: Risk
+		lineageTag: 40ae2f75-c24a-5b05-bdc3-7cee0bd03e7c
+
+	measure 'Avg Predicted PD' = AVERAGE(customer_360[pd_score])
+		formatString: 0.0%
+		displayFolder: Risk
+		lineageTag: f490feaa-dab8-5be4-9a37-fd0a62393db4
+
+	measure 'PD Calibration Gap' = [Avg Predicted PD] - [Actual Default Rate (Oct)]
+		formatString: 0.0%;-0.0%
+		displayFolder: Risk
+		lineageTag: fb1fb8fe-dd46-549d-a0fb-2340b04f9673
+
+	measure EAD = SUM(customer_360[ead_estimate])
+		formatString: \N\T\$#,0
+		displayFolder: Risk
+		lineageTag: add23a8b-41ec-5985-8d32-2f324eb6b28f
+
+	measure 'ECL Rate on EAD' = DIVIDE([Expected Credit Loss (Next Month)], [EAD])
+		formatString: 0.00%
+		displayFolder: Risk
+		lineageTag: 1b73df7f-eeb8-5a0e-bf16-b1a6ced0f780
+
+	measure 'Very High Risk Customers' = CALCULATE([Customers], customer_360[pd_risk_band] = "4. Very high (50%+)")
+		formatString: #,0
+		displayFolder: Risk
+		lineageTag: 04786693-54f4-5ea3-88b4-2451da12810e
+
+	measure 'PD Test ROC-AUC' = CALCULATE(MAX(model_comparison[value]), model_comparison[task] = "pd", model_comparison[model] = "lightgbm", model_comparison[metric] = "test_roc_auc")
+		formatString: 0.000
+		displayFolder: Risk
+		lineageTag: 85dd631d-3d77-56ef-9606-17d40517a32e
+
+	measure 'PD Decile Actual Default Rate' = CALCULATE(AVERAGE(model_lift[observed_rate]), model_lift[task] = "pd")
+		formatString: 0.0%
+		displayFolder: Risk
+		lineageTag: aedc90ad-fbe8-58fe-a753-342d396be5f2
+
+	measure 'PD Decile Mean Predicted PD' = CALCULATE(AVERAGE(model_lift[mean_predicted]), model_lift[task] = "pd")
+		formatString: 0.0%
+		displayFolder: Risk
+		lineageTag: 5ae32b50-e8a9-5f82-bfce-2945763348eb
+
+	measure 'Roll Rate Share' = VAR n = CALCULATE(SUM(roll_rates[accounts]), roll_rates[from_month_index] <= 4, KEEPFILTERS(roll_rates[from_bucket] <> "1. 30 DPD"), KEEPFILTERS(roll_rates[to_bucket] <> "1. 30 DPD")) VAR tot = CALCULATE(SUM(roll_rates[accounts]), roll_rates[from_month_index] <= 4, KEEPFILTERS(roll_rates[from_bucket] <> "1. 30 DPD"), REMOVEFILTERS(roll_rates[to_bucket])) RETURN DIVIDE(n, tot)
+		formatString: 0%
+		displayFolder: Risk
+		lineageTag: 9c959242-ce36-5f9f-a93b-3b62a736bc38
+
+	measure 'Avg Dormancy Probability' = AVERAGE(customer_360[churn_score])
+		formatString: 0.0%
+		displayFolder: Retention
+		lineageTag: 680468c0-630e-5fc3-8c1a-cc79680fb061
+
+	measure 'Active Customers Scored' = COUNTROWS(retention_priority)
+		formatString: #,0
+		displayFolder: Retention
+		lineageTag: 5abb64e2-6d6c-5128-8c49-2797b0bf09e4
+
+	measure 'Expected Value at Risk (12m)' = SUM(retention_priority[expected_value_at_risk])
+		formatString: \N\T\$#,0
+		displayFolder: Retention
+		lineageTag: d5dd09b6-8867-5739-89ae-b1443d9a9b7c
+
+	measure 'Contact Now Customers' = CALCULATE(COUNTROWS(retention_priority), retention_priority[priority_tier] = "1. Contact now")
+		formatString: #,0
+		displayFolder: Retention
+		lineageTag: 22c86c5d-8ff7-591c-9ce2-1a162779853e
+
+	measure 'Contact Now Expected Net Benefit' = CALCULATE(SUM(retention_priority[expected_net_benefit]), retention_priority[priority_tier] = "1. Contact now")
+		formatString: \N\T\$#,0
+		displayFolder: Retention
+		lineageTag: 16956de4-6cf5-5ae3-ab36-40cecebbe706
+
+	measure 'Excluded for Credit Risk' = CALCULATE(COUNTROWS(retention_priority), retention_priority[priority_tier] = "5. Exclude - high credit risk")
+		formatString: #,0
+		displayFolder: Retention
+		lineageTag: 8c1cffb1-4dd1-5941-aa32-f6919e0774c5
+
+	measure 'Avg P(Dormant)' = AVERAGE(retention_priority[churn_score])
+		formatString: 0.00%
+		displayFolder: Retention
+		lineageTag: be5b0a95-128d-5aec-8861-2d4d9c694e72
+
+	measure 'Avg Risk-Adj Value per Month' = AVERAGE(retention_priority[est_risk_adjusted_contribution])
+		formatString: \N\T\$#,0
+		displayFolder: Retention
+		lineageTag: 3d93899e-da9e-5242-bcfb-f19f8c7da3b8
+
+	measure 'Cumulative Net Benefit' = SUM(retention_budget_curve[cum_benefit_model])
+		formatString: \N\T\$#,0
+		displayFolder: Retention
+		lineageTag: 4f6cba62-33e3-546e-823d-d3777f0522f8
+
+	measure 'Cumulative Share of Contribution' = MAX(value_concentration[cum_share_of_total])
+		formatString: 0%
+		displayFolder: Customers
+		lineageTag: cfc20492-1d2c-5420-9555-20c3a5bc7420
+
+	column Value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bc0d8a69-123a-5aed-a2b2-15e512ec5c4c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("Value", 0)

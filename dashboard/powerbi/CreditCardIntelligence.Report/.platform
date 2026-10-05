@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CreditCardIntelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a044fe3a-fcd6-48be-9b5c-0fce072836ce"
+  }
+}

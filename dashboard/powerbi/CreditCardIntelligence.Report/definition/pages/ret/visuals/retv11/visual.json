@@ -1,0 +1,203 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "retv11",
+  "position": {
+    "x": 16,
+    "y": 418,
+    "z": 11,
+    "height": 294,
+    "width": 900,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "retention_priority.customer_id",
+              "nativeQueryRef": "customer_id",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "retention_priority.segment",
+              "nativeQueryRef": "segment",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "est_risk_adjusted_contribution"
+                }
+              },
+              "queryRef": "retention_priority.est_risk_adjusted_contribution",
+              "nativeQueryRef": "est_risk_adjusted_contribution",
+              "displayName": "Value / month (est.)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "churn_score"
+                }
+              },
+              "queryRef": "retention_priority.churn_score",
+              "nativeQueryRef": "churn_score",
+              "displayName": "P(dormant)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "pd_score"
+                }
+              },
+              "queryRef": "retention_priority.pd_score",
+              "nativeQueryRef": "pd_score",
+              "displayName": "PD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "expected_net_benefit"
+                }
+              },
+              "queryRef": "retention_priority.expected_net_benefit",
+              "nativeQueryRef": "expected_net_benefit",
+              "displayName": "Expected net benefit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "priority_tier"
+                }
+              },
+              "queryRef": "retention_priority.priority_tier",
+              "nativeQueryRef": "priority_tier",
+              "displayName": "Priority"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_priority"
+                    }
+                  },
+                  "Property": "priority_reason"
+                }
+              },
+              "queryRef": "retention_priority.priority_reason",
+              "nativeQueryRef": "priority_reason",
+              "displayName": "Why"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "retention_priority"
+                  }
+                },
+                "Property": "expected_net_benefit"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Decision list: who to contact first, and why (sorted by expected net benefit)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

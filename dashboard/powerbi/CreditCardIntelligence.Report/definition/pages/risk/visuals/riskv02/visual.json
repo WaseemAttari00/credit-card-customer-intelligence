@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "riskv02",
+  "position": {
+    "x": 1076,
+    "y": 8,
+    "z": 2,
+    "height": 56,
+    "width": 188,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_360"
+                    }
+                  },
+                  "Property": "limit_tier"
+                }
+              },
+              "queryRef": "customer_360.limit_tier",
+              "nativeQueryRef": "limit_tier",
+              "displayName": "Credit limit tier"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

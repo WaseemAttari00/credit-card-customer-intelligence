@@ -5,15 +5,19 @@
 #
 # Prerequisite: download the "Windows x86-64" binaries zip from
 # https://www.enterprisedb.com/download-postgresql-binaries and unzip it so that
-# $PG_HOME\bin\pg_ctl.exe exists (default PG_HOME = %LOCALAPPDATA%\pgsql).
+# $PG_HOME\bin\pg_ctl.exe exists (default PG_HOME = %USERPROFILE%\pgsql).
+#
+# Defaults live under %USERPROFILE%, not %LOCALAPPDATA%: Windows redirects AppData writes made by
+# packaged (MSIX) apps into a private per-app folder, so files created from inside such an app's
+# terminal would be invisible to a normal terminal and to Power BI.
 param([switch]$Stop, [int]$Port = 5432, [string]$Database = "cc_intel")
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $envFile = Join-Path $root ".env"
 
-$pgHome = if ($env:PG_HOME) { $env:PG_HOME } else { Join-Path $env:LOCALAPPDATA "pgsql" }
-$pgData = if ($env:PG_DATA) { $env:PG_DATA } else { Join-Path $env:LOCALAPPDATA "pgsql_data" }
+$pgHome = if ($env:PG_HOME) { $env:PG_HOME } else { Join-Path $env:USERPROFILE "pgsql" }
+$pgData = if ($env:PG_DATA) { $env:PG_DATA } else { Join-Path $env:USERPROFILE "pgsql_data" }
 $bin = Join-Path $pgHome "bin"
 if (-not (Test-Path (Join-Path $bin "pg_ctl.exe"))) { throw "pg_ctl.exe not found under $bin. Set PG_HOME." }
 

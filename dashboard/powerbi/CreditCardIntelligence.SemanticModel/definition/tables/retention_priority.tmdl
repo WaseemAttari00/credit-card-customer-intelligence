@@ -1,0 +1,177 @@
+table retention_priority
+	lineageTag: d7f21cca-926b-52d1-ada5-19f6c7b6114c
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ebb28cb-d877-5dce-8f07-0993c25d6dba
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: c76d5a23-d8ab-56b3-95a7-f0c8238ef1f2
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column limit_tier
+		dataType: string
+		lineageTag: a05749ae-589e-5b33-aa08-35cb7fca3639
+		summarizeBy: none
+		sourceColumn: limit_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_band
+		dataType: string
+		lineageTag: 3041f4ce-d169-5267-ab0d-b9517d127e43
+		summarizeBy: none
+		sourceColumn: age_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_score
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2e8a4f1c-6f09-5b40-9e2c-ef07f1eeb0b3
+		summarizeBy: none
+		sourceColumn: churn_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_decile
+		dataType: int64
+		formatString: #,0
+		lineageTag: 741be2e3-6179-5fef-97eb-7b9a2ada4a77
+		summarizeBy: none
+		sourceColumn: churn_decile
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_score
+		dataType: double
+		formatString: 0.0%
+		lineageTag: bd2d18b2-2b55-5989-9171-f9525542b0cc
+		summarizeBy: none
+		sourceColumn: pd_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_risk_band
+		dataType: string
+		lineageTag: 88707fa9-1659-53fc-8f25-933e69616355
+		summarizeBy: none
+		sourceColumn: pd_risk_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_monthly_revenue
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: ecd2a860-2bbe-5c89-ac88-07c97bd5e2e2
+		summarizeBy: sum
+		sourceColumn: est_monthly_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_contribution_before_losses
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 64a885f7-ce8b-580a-8600-634edfa6842a
+		summarizeBy: sum
+		sourceColumn: est_contribution_before_losses
+
+		annotation SummarizationSetBy = Automatic
+
+	column ecl_next_month
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 75628d04-138f-5a98-b4ea-0fa8c0d79481
+		summarizeBy: sum
+		sourceColumn: ecl_next_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_risk_adjusted_contribution
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 9e53ecd4-52e9-5dc9-acb1-5e88d2aec727
+		summarizeBy: sum
+		sourceColumn: est_risk_adjusted_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_if_retained
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 4837f489-5052-5493-a456-e90cf82afb3e
+		summarizeBy: sum
+		sourceColumn: value_if_retained
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_value_at_risk
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 4d66a7d4-0e74-54cb-98c6-da7077bfc73b
+		summarizeBy: sum
+		sourceColumn: expected_value_at_risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_net_benefit
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 5cf3311a-9a19-5b94-b69d-b6ec79f9173e
+		summarizeBy: sum
+		sourceColumn: expected_net_benefit
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority_rank
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9e5b5541-395a-5b66-92e2-67b924bd544f
+		summarizeBy: none
+		sourceColumn: priority_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority_tier
+		dataType: string
+		lineageTag: 22b4152e-ce9c-5bf2-a76b-a90d44858f38
+		summarizeBy: none
+		sourceColumn: priority_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_risk_quadrant
+		dataType: string
+		lineageTag: 07ce653b-67d8-5136-8687-19e975511abb
+		summarizeBy: none
+		sourceColumn: value_risk_quadrant
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority_reason
+		dataType: string
+		lineageTag: 3eb9a029-aa5d-5f85-8d01-096456d8aeb8
+		summarizeBy: none
+		sourceColumn: priority_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition retention_priority = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "retention_priority"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

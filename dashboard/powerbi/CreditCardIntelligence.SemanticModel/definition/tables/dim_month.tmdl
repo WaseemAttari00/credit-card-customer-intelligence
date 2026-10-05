@@ -1,0 +1,87 @@
+table dim_month
+	lineageTag: b3f2ce97-3291-585b-927c-c24a14c77dce
+
+	column month_index
+		dataType: int64
+		formatString: 0
+		lineageTag: be6f05fd-70d0-579d-8c0c-be05a98b96ef
+		summarizeBy: none
+		sourceColumn: month_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 54cd8bd0-619b-5d5e-8f61-a5dfcd34f084
+		summarizeBy: none
+		sourceColumn: month_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: e5c53fa0-8ae0-5f68-9962-d4fd262a91d3
+		summarizeBy: none
+		sourceColumn: month_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_end
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3d37cb2e-c36f-5969-b421-aeec2b50f1de
+		summarizeBy: none
+		sourceColumn: month_end
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_label
+		dataType: string
+		lineageTag: 9097bb73-8edb-574c-b48b-71672da8b766
+		summarizeBy: none
+		sourceColumn: month_label
+		sortByColumn: month_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column calendar_quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: cf956811-aeb4-5ccb-80d5-450fc01aedc5
+		summarizeBy: none
+		sourceColumn: calendar_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_type
+		dataType: string
+		lineageTag: 8d29de31-6b73-568c-aefd-1776a933903a
+		summarizeBy: none
+		sourceColumn: month_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_latest_statement
+		dataType: boolean
+		lineageTag: c15ef69c-04b4-5af3-8524-f8b0e2cb5615
+		summarizeBy: none
+		sourceColumn: is_latest_statement
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_month = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "core", Item = "dim_month"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

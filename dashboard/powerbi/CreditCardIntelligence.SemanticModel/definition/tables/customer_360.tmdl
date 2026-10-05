@@ -1,0 +1,411 @@
+table customer_360
+	lineageTag: acc77663-fc0c-5681-970f-d7b8f1e4d7c8
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ce886d5d-7d38-58f4-b95e-a2830ecd6c9d
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sex
+		dataType: string
+		lineageTag: 6bef5942-47c2-5880-a2ff-9c5d495d18d4
+		summarizeBy: none
+		sourceColumn: sex
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: #,0
+		lineageTag: bda86b81-a7f7-569d-89bc-157a87ee0506
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_band
+		dataType: string
+		lineageTag: be305142-c068-5850-9643-bfef55652118
+		summarizeBy: none
+		sourceColumn: age_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column education
+		dataType: string
+		lineageTag: 00e1912b-abce-5b57-9096-2e13b961e38f
+		summarizeBy: none
+		sourceColumn: education
+
+		annotation SummarizationSetBy = Automatic
+
+	column marital_status
+		dataType: string
+		lineageTag: d10c9181-0d2f-53d9-b01d-6197b435f354
+		summarizeBy: none
+		sourceColumn: marital_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_limit
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: eac32766-81b5-5044-9489-99a3d401524f
+		summarizeBy: sum
+		sourceColumn: credit_limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column limit_tier
+		dataType: string
+		lineageTag: fbbbcc47-dc62-5609-9013-dbd90e9a9506
+		summarizeBy: none
+		sourceColumn: limit_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column balance_sep
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 3f82a3c3-c582-5d14-a0e9-c51f1f3504c4
+		summarizeBy: sum
+		sourceColumn: balance_sep
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization_sep
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d6eaf219-cf35-51e7-96bb-d82ff47a5454
+		summarizeBy: none
+		sourceColumn: utilization_sep
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization_avg_6m
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 935ebfe2-ad92-50a8-aca6-a6d888d1d7f3
+		summarizeBy: none
+		sourceColumn: utilization_avg_6m
+
+		annotation SummarizationSetBy = Automatic
+
+	column utilization_trend
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 6581947e-86a8-5a5f-84f9-5ffde8e89602
+		summarizeBy: none
+		sourceColumn: utilization_trend
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_ratio_avg
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f6f29645-f420-5714-9d72-5f93a3456c17
+		summarizeBy: none
+		sourceColumn: payment_ratio_avg
+
+		annotation SummarizationSetBy = Automatic
+
+	column months_paid_in_full
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8b2de232-0134-58a4-9b7b-aa1fbf0a8b43
+		summarizeBy: none
+		sourceColumn: months_paid_in_full
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_total_6m
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: d4c2b0e5-3428-59dc-8a36-7d324e0b104b
+		summarizeBy: sum
+		sourceColumn: payment_total_6m
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_new_charges_avg
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: e1588761-c0e9-5098-938f-ce98c846c456
+		summarizeBy: sum
+		sourceColumn: est_new_charges_avg
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_new_charges_trend
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: c8752b15-fb5e-5a15-b7fc-038ddbeebd61
+		summarizeBy: sum
+		sourceColumn: est_new_charges_trend
+
+		annotation SummarizationSetBy = Automatic
+
+	column months_inactive_5m
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4b3a84ba-0f69-52d8-a07f-8e12efb6a98f
+		summarizeBy: none
+		sourceColumn: months_inactive_5m
+
+		annotation SummarizationSetBy = Automatic
+
+	column status_latest
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2ee44edf-8b05-5d19-bd90-268a89786a7d
+		summarizeBy: none
+		sourceColumn: status_latest
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_status_6m
+		dataType: int64
+		formatString: #,0
+		lineageTag: 711b502e-94e3-57b8-867e-f7856d1c9370
+		summarizeBy: none
+		sourceColumn: max_status_6m
+
+		annotation SummarizationSetBy = Automatic
+
+	column months_delinquent_6m
+		dataType: int64
+		formatString: #,0
+		lineageTag: d754ab67-c596-5c6b-8e9b-d62847b5111d
+		summarizeBy: none
+		sourceColumn: months_delinquent_6m
+
+		annotation SummarizationSetBy = Automatic
+
+	column months_60plus_6m
+		dataType: int64
+		formatString: #,0
+		lineageTag: bf387c1b-0b10-593e-b038-9736b68d1ed0
+		summarizeBy: none
+		sourceColumn: months_60plus_6m
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_state_sep
+		dataType: string
+		lineageTag: 434dcf93-91b8-53c8-82d8-08fac91dd7ab
+		summarizeBy: none
+		sourceColumn: account_state_sep
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: 33306bc1-38ea-51a2-ba02-111c25077d34
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_score
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2b4efa69-d445-5362-be08-eb3b1b0452d6
+		summarizeBy: none
+		sourceColumn: pd_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_decile
+		dataType: int64
+		formatString: #,0
+		lineageTag: 55dbdebe-d16a-5faa-9493-86274bcb767d
+		summarizeBy: none
+		sourceColumn: pd_decile
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_risk_band
+		dataType: string
+		lineageTag: 8d882bdf-4323-5d80-bc36-c369110f7001
+		summarizeBy: none
+		sourceColumn: pd_risk_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_drivers_up
+		dataType: string
+		lineageTag: cfadff14-5435-5e6c-bd4e-68a94f4c2a45
+		summarizeBy: none
+		sourceColumn: pd_drivers_up
+
+		annotation SummarizationSetBy = Automatic
+
+	column pd_drivers_down
+		dataType: string
+		lineageTag: 7f22210c-beeb-50ea-81c5-b81ae46358b4
+		summarizeBy: none
+		sourceColumn: pd_drivers_down
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_score
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 33ac0dbf-ddad-5f99-8e31-ae85aad96ca0
+		summarizeBy: none
+		sourceColumn: churn_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_decile
+		dataType: int64
+		formatString: #,0
+		lineageTag: 22d29e7d-14dd-599d-91e1-b5d4f15dbd68
+		summarizeBy: none
+		sourceColumn: churn_decile
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_drivers_up
+		dataType: string
+		lineageTag: 40b55a33-c6c7-5dd8-bc7e-9d1af9cca941
+		summarizeBy: none
+		sourceColumn: churn_drivers_up
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_drivers_down
+		dataType: string
+		lineageTag: 7dd9226b-d3d6-5a04-a995-fe17b57763a9
+		summarizeBy: none
+		sourceColumn: churn_drivers_down
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_monthly_purchases
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 10646847-1173-5610-a509-bef245c5038e
+		summarizeBy: sum
+		sourceColumn: est_monthly_purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_monthly_revenue
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 47a1803f-0558-5f2e-b2ca-898f8d7fec3b
+		summarizeBy: sum
+		sourceColumn: est_monthly_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_monthly_operating_cost
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 2d1402ea-2773-5587-92bd-e64373f47ca4
+		summarizeBy: sum
+		sourceColumn: est_monthly_operating_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_contribution_before_losses
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 3c8013fd-bca0-582d-84d6-2583b2163a22
+		summarizeBy: sum
+		sourceColumn: est_contribution_before_losses
+
+		annotation SummarizationSetBy = Automatic
+
+	column ead_estimate
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 07f3ae0c-06dc-5d91-a3d8-f61456afd74d
+		summarizeBy: sum
+		sourceColumn: ead_estimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ecl_next_month
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: 0e65256a-e16b-59f4-b96f-6f8204c64f22
+		summarizeBy: sum
+		sourceColumn: ecl_next_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column est_risk_adjusted_contribution
+		dataType: double
+		formatString: \N\T\$#,0
+		lineageTag: c96cd45c-08d5-53f8-bc03-b5c30a172c1e
+		summarizeBy: sum
+		sourceColumn: est_risk_adjusted_contribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_quintile
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2aef8f62-9b2d-5bcd-9cb2-a30286df5ec1
+		summarizeBy: none
+		sourceColumn: value_quintile
+
+		annotation SummarizationSetBy = Automatic
+
+	column profitability_band
+		dataType: string
+		lineageTag: cdf22052-caff-5ab8-9d95-af627b5a38df
+		summarizeBy: none
+		sourceColumn: profitability_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_default_oct
+		dataType: boolean
+		lineageTag: d8e95475-3f5f-5271-b741-03c0b335a1e5
+		summarizeBy: none
+		sourceColumn: actual_default_oct
+
+		annotation SummarizationSetBy = Automatic
+
+	column dq_duplicate_profile
+		dataType: boolean
+		lineageTag: c92483b4-ada8-5b6b-9967-e0fff17c7370
+		summarizeBy: none
+		sourceColumn: dq_duplicate_profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column dq_status_balance_conflict
+		dataType: boolean
+		lineageTag: 996f2533-8182-5019-9db4-9ed48887e745
+		summarizeBy: none
+		sourceColumn: dq_status_balance_conflict
+
+		annotation SummarizationSetBy = Automatic
+
+	column dq_warning_count
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3407f914-ef45-5064-836f-3bc09267a85e
+		summarizeBy: none
+		sourceColumn: dq_warning_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer_360 = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "customer_360"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

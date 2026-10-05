@@ -16,3 +16,4 @@ pytest>=8.0
 jupyter>=1.1
 nbconvert>=7.16
 scipy==1.15.1
+pymupdf==1.27.2.3   # only for scripts/export_dashboard_images.py (Power BI PDF -> README screenshots)

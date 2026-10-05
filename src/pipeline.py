@@ -8,7 +8,7 @@ Steps (in order):
     sql      build core tables, features and descriptive marts in Postgres
     model    train/evaluate PD and dormancy models, score customers, SHAP, segmentation
     marts    build the marts that depend on model scores (profitability, customer 360, priority)
-    export   export Power BI tables, figures and markdown reports
+    export   analysis tables, significance tests and the data-quality report
 """
 from __future__ import annotations
 
@@ -40,6 +40,7 @@ SQL_MARTS = [
     "sql/marts/05_customer_profitability.sql",
     "sql/marts/06_customer_360.sql",
     "sql/marts/07_retention_priority.sql",
+    "sql/marts/08_dashboard_curves.sql",
 ]
 
 

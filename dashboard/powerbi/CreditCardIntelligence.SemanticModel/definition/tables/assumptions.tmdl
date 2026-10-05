@@ -1,0 +1,46 @@
+table assumptions
+	lineageTag: 77d0d4cc-75e4-55d2-8aa9-6c0f88411784
+
+	column parameter
+		dataType: string
+		lineageTag: d1ef24ee-2c18-5346-9edc-4aca6adbea27
+		summarizeBy: none
+		sourceColumn: parameter
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		formatString: 0.####
+		lineageTag: 0f7be7d5-8801-53d4-bc6a-a8b0f644bfb9
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter_group
+		dataType: string
+		lineageTag: d2fcd317-06ba-5989-9f78-882684ec8241
+		summarizeBy: none
+		sourceColumn: parameter_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: c911a097-3f1d-5a71-9c20-18c3208b67bd
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition assumptions = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "mart", Item = "assumptions"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table

@@ -26,34 +26,34 @@
       {
         "model": "lightgbm",
         "best_params": "{\"min_child_samples\": 50, \"num_leaves\": 7}",
-        "cv_roc_auc": 0.7891906242107329,
-        "cv_roc_auc_std": 0.004594689947891433,
-        "cv_pr_auc": 0.5643614057141578,
-        "cv_pr_auc_std": 0.004281766841711843,
-        "train_roc_auc": 0.8201941280465757,
-        "train_pr_auc": 0.6140353697535044
+        "cv_roc_auc": 0.7893042090422929,
+        "cv_roc_auc_std": 0.004617928600180939,
+        "cv_pr_auc": 0.5644751461470845,
+        "cv_pr_auc_std": 0.00438801854486142,
+        "train_roc_auc": 0.8202376807863411,
+        "train_pr_auc": 0.6140443560961903
       }
     ],
     "calibration_table": [
       {
         "method": "none",
-        "brier": 0.13249631835548972,
-        "ece": 0.006010317500418383,
-        "mean_predicted": 0.22089265931955834,
+        "brier": 0.13248308533458594,
+        "ece": 0.005764655377795942,
+        "mean_predicted": 0.22088159249534386,
         "base_rate": 0.22120833333333334
       },
       {
         "method": "sigmoid",
-        "brier": 0.13249499248122557,
-        "ece": 0.005846586938884738,
-        "mean_predicted": 0.22100249853907114,
+        "brier": 0.13248173607339303,
+        "ece": 0.005627032913049571,
+        "mean_predicted": 0.2209903138749075,
         "base_rate": 0.22120833333333334
       },
       {
         "method": "isotonic",
-        "brier": 0.13259954030876964,
-        "ece": 0.007543097267692558,
-        "mean_predicted": 0.22112749852895072,
+        "brier": 0.13257942129407543,
+        "ece": 0.007489803760226606,
+        "mean_predicted": 0.22108685850861873,
         "base_rate": 0.22120833333333334
       }
     ],
@@ -62,7 +62,7 @@
         "model": "logistic_regression",
         "test_roc_auc": 0.7701399484056867,
         "test_pr_auc": 0.5334545756604012,
-        "test_brier": 0.1377407246232515
+        "test_brier": 0.13774072462346384
       },
       {
         "model": "random_forest",
@@ -118,20 +118,20 @@
     "oof_metrics": {
       "n": 30000,
       "base_rate": 0.2212,
-      "roc_auc": 0.7883118340772278,
-      "gini": 0.5766236681544556,
-      "pr_auc": 0.5657734891878651,
-      "brier": 0.13263174616621007,
-      "log_loss": 0.42324876084318425,
-      "mean_predicted": 0.22096496058137208,
+      "roc_auc": 0.7882612353755885,
+      "gini": 0.5765224707511769,
+      "pr_auc": 0.5655928876775181,
+      "brier": 0.13263920904572754,
+      "log_loss": 0.42326714634766666,
+      "mean_predicted": 0.2209469365394127,
       "threshold": 0.5,
-      "precision": 0.6738719265063496,
-      "recall": 0.3758288125376733,
-      "f1": 0.48253845409693336,
-      "tp": 2494,
-      "fp": 1207,
-      "tn": 22157,
-      "fn": 4142
+      "precision": 0.6737722611980572,
+      "recall": 0.37628089210367693,
+      "f1": 0.48288532198801004,
+      "tp": 2497,
+      "fp": 1209,
+      "tn": 22155,
+      "fn": 4139
     },
     "lift": [
       {
@@ -353,216 +353,216 @@
     "cost_table": [
       {
         "c_fp": 500,
-        "c_fn": 1531.6681649165505,
-        "threshold": 0.2461031819241688,
+        "c_fn": 1531.670921558175,
+        "threshold": 0.24610284800282947,
         "share_flagged": 0.2728333333333333,
         "precision": 0.4923640806353085,
         "recall": 0.6073850791258478,
-        "expected_cost_per_customer": 202.2498523202538
+        "expected_cost_per_customer": 202.25009168863485
       },
       {
         "c_fp": 2000,
-        "c_fn": 1531.6681649165505,
-        "threshold": 0.5663046205382261,
+        "c_fn": 1531.670921558175,
+        "threshold": 0.566304178509814,
         "share_flagged": 0.10816666666666666,
         "precision": 0.687211093990755,
         "recall": 0.3360964581763376,
-        "expected_cost_per_customer": 292.5666088819135
+        "expected_cost_per_customer": 292.567013648792
       },
       {
         "c_fp": 5000,
-        "c_fn": 1531.6681649165505,
-        "threshold": 0.7655012278266713,
+        "c_fn": 1531.670921558175,
+        "threshold": 0.7655009047527482,
         "share_flagged": 0.022333333333333334,
         "precision": 0.8283582089552238,
         "recall": 0.08364732479276564,
-        "expected_cost_per_customer": 329.5847480897542
+        "expected_cost_per_customer": 329.58530676912346
       }
     ],
     "importance": [
       {
         "feature": "months_since_delinquent",
-        "mean_abs_shap": 0.2839206812056439,
+        "mean_abs_shap": 0.28392175960116073,
         "feature_label": "Months since last delinquency",
         "rank": 1
       },
       {
         "feature": "status_latest",
-        "mean_abs_shap": 0.20536439353596112,
+        "mean_abs_shap": 0.20537609802713025,
         "feature_label": "Sep repayment status",
         "rank": 2
       },
       {
         "feature": "max_status_6m",
-        "mean_abs_shap": 0.17049748722006675,
+        "mean_abs_shap": 0.17060369396043595,
         "feature_label": "Worst repayment status (6m)",
         "rank": 3
       },
       {
         "feature": "available_credit",
-        "mean_abs_shap": 0.1657076840786818,
+        "mean_abs_shap": 0.16548727972967753,
         "feature_label": "Available credit",
         "rank": 4
       },
       {
         "feature": "new_charges_avg",
-        "mean_abs_shap": 0.11258191661433198,
+        "mean_abs_shap": 0.11298684651152972,
         "feature_label": "Avg new charges",
         "rank": 5
       },
       {
         "feature": "bill_latest",
-        "mean_abs_shap": 0.09255460978935298,
+        "mean_abs_shap": 0.09204547727602215,
         "feature_label": "Balance (Sep)",
         "rank": 6
       },
       {
         "feature": "bill_avg_6m",
-        "mean_abs_shap": 0.09057439486067712,
+        "mean_abs_shap": 0.09188544308963771,
         "feature_label": "Average balance (6m)",
         "rank": 7
       },
       {
         "feature": "payment_total_6m",
-        "mean_abs_shap": 0.08647872117600795,
+        "mean_abs_shap": 0.08622853266817793,
         "feature_label": "Total paid (6m)",
         "rank": 8
       },
       {
         "feature": "months_60plus_6m",
-        "mean_abs_shap": 0.0792600810916298,
+        "mean_abs_shap": 0.07907600283354038,
         "feature_label": "Months 60+ days late (6m)",
         "rank": 9
       },
       {
         "feature": "payment_ratio_min",
-        "mean_abs_shap": 0.07398464295951364,
+        "mean_abs_shap": 0.07414912956093073,
         "feature_label": "Lowest share of bill paid",
         "rank": 10
       },
       {
         "feature": "payment_latest",
-        "mean_abs_shap": 0.05614967814248984,
+        "mean_abs_shap": 0.055882603996196954,
         "feature_label": "Payment (Sep)",
         "rank": 11
       },
       {
         "feature": "new_charges_trend",
-        "mean_abs_shap": 0.05522434442742612,
+        "mean_abs_shap": 0.05511894514205511,
         "feature_label": "New charges trend",
         "rank": 12
       },
       {
         "feature": "age",
-        "mean_abs_shap": 0.04719756616361373,
+        "mean_abs_shap": 0.0472543430962106,
         "feature_label": "Age",
         "rank": 13
       },
       {
         "feature": "util_latest",
-        "mean_abs_shap": 0.03477087230418823,
+        "mean_abs_shap": 0.03499361702049351,
         "feature_label": "Utilization (Sep)",
         "rank": 14
       },
       {
         "feature": "util_max_6m",
-        "mean_abs_shap": 0.03405740577490678,
+        "mean_abs_shap": 0.03421432961745723,
         "feature_label": "Peak utilization (6m)",
         "rank": 15
       },
       {
         "feature": "new_charges_to_limit",
-        "mean_abs_shap": 0.031541263877161094,
+        "mean_abs_shap": 0.03165638118887823,
         "feature_label": "Avg new charges / limit",
         "rank": 16
       },
       {
         "feature": "months_delinquent_6m",
-        "mean_abs_shap": 0.02993289517538029,
+        "mean_abs_shap": 0.029855430208768064,
         "feature_label": "Months delinquent (6m)",
         "rank": 17
       },
       {
         "feature": "months_paid_in_full",
-        "mean_abs_shap": 0.02814799570704518,
+        "mean_abs_shap": 0.02851428857424934,
         "feature_label": "Months paid in full",
         "rank": 18
       },
       {
         "feature": "util_trend_6m",
-        "mean_abs_shap": 0.026903630548050995,
+        "mean_abs_shap": 0.026824827398820063,
         "feature_label": "Utilization trend (per month)",
         "rank": 19
       },
       {
         "feature": "credit_limit",
-        "mean_abs_shap": 0.026146626687100213,
+        "mean_abs_shap": 0.02616840910338726,
         "feature_label": "Credit limit",
         "rank": 20
       },
       {
         "feature": "education",
-        "mean_abs_shap": 0.025667376915552306,
+        "mean_abs_shap": 0.02547017186489425,
         "feature_label": "Education",
         "rank": 21
       },
       {
         "feature": "payment_ratio_latest",
-        "mean_abs_shap": 0.022805530698358552,
+        "mean_abs_shap": 0.02319377423114718,
         "feature_label": "Share of bill paid (Sep)",
         "rank": 22
       },
       {
         "feature": "util_avg_6m",
-        "mean_abs_shap": 0.018244577751213947,
+        "mean_abs_shap": 0.018261243413346118,
         "feature_label": "Average utilization (6m)",
         "rank": 23
       },
       {
         "feature": "payment_ratio_avg",
-        "mean_abs_shap": 0.015093798146503214,
+        "mean_abs_shap": 0.014824241811164342,
         "feature_label": "Avg share of bill paid",
         "rank": 24
       },
       {
         "feature": "payment_to_limit_6m",
-        "mean_abs_shap": 0.014336751820032585,
+        "mean_abs_shap": 0.014332318747050526,
         "feature_label": "Total paid / limit",
         "rank": 25
       },
       {
         "feature": "months_missed_payment",
-        "mean_abs_shap": 0.011328929301664696,
+        "mean_abs_shap": 0.0113970914345739,
         "feature_label": "Months with no payment",
         "rank": 26
       },
       {
         "feature": "status_prev",
-        "mean_abs_shap": 0.006815227325793747,
+        "mean_abs_shap": 0.006776710669994825,
         "feature_label": "Aug repayment status",
         "rank": 27
       },
       {
         "feature": "months_inactive_5m",
-        "mean_abs_shap": 0.004978463990295115,
+        "mean_abs_shap": 0.004961152143808065,
         "feature_label": "Inactive months",
         "rank": 28
       },
       {
         "feature": "months_over_limit",
-        "mean_abs_shap": 0.004288344089365034,
+        "mean_abs_shap": 0.004093974199813186,
         "feature_label": "Months over limit",
         "rank": 29
       },
       {
         "feature": "months_credit_balance",
-        "mean_abs_shap": 0.002441152382441525,
+        "mean_abs_shap": 0.0024356213400187916,
         "feature_label": "Months with credit balance",
         "rank": 30
       },
       {
         "feature": "delinquent_streak",
-        "mean_abs_shap": 0.0017659263652108994,
+        "mean_abs_shap": 0.001754213245692927,
         "feature_label": "Consecutive late months",
         "rank": 31
       }
@@ -572,16 +572,16 @@
         "sex": "Female",
         "customers": 18112,
         "actual_default_rate": 0.20776280918727916,
-        "mean_pd": 0.21214902514976897
+        "mean_pd": 0.2121485796027543
       },
       {
         "sex": "Male",
         "customers": 11888,
         "actual_default_rate": 0.2416722745625841,
-        "mean_pd": 0.2343965068917014
+        "mean_pd": 0.23435170107817083
       }
     ],
-    "chargeoff_share": 0.03412830943576784,
+    "chargeoff_share": 0.03412837085867949,
     "n_train": 24000,
     "n_test": 6000
   },
@@ -641,13 +641,13 @@
       {
         "method": "sigmoid",
         "brier": 0.015283799206407558,
-        "ece": 0.008044089478212751,
+        "ece": 0.008044089478212755,
         "mean_predicted": 0.01639242692789115,
         "base_rate": 0.01634877384196185
       },
       {
         "method": "isotonic",
-        "brier": 0.014990055845466001,
+        "brier": 0.014990055845466003,
         "ece": 0.0007680761104565576,
         "mean_predicted": 0.01634301840772723,
         "base_rate": 0.01634877384196185
@@ -689,7 +689,7 @@
         "brier": 0.011283587649280372,
         "log_loss": 0.049773247700807335,
         "mean_predicted": 0.015168746813010496,
-        "threshold": 0.04740026917268958,
+        "threshold": 0.04740026917268959,
         "precision": 0.08205320344698389,
         "recall": 0.6780185758513931,
         "f1": 0.1463903743315508,
@@ -726,7 +726,7 @@
       "brier": 0.013102860812812669,
       "log_loss": 0.048262909789640915,
       "mean_predicted": 0.0164940377086148,
-      "threshold": 0.04740026917268958,
+      "threshold": 0.04740026917268959,
       "precision": 0.1420940170940171,
       "recall": 0.9366197183098591,
       "f1": 0.24675324675324675,
@@ -829,7 +829,7 @@
     ],
     "calibration_curve": [
       {
-        "mean_predicted": 0.00013821485554652585,
+        "mean_predicted": 0.00013821485554652582,
         "observed_rate": 0.00018737118231216038
       },
       {
@@ -971,7 +971,7 @@
         "rank": 20
       }
     ],
-    "threshold_top10": 0.04740026917268958,
+    "threshold_top10": 0.04740026917268959,
     "n_train": 26057,
     "n_test": 26681,
     "train_rate": 0.01634877384196185,
@@ -990,7 +990,7 @@
       },
       {
         "k": 3,
-        "inertia": 84089.81422383978,
+        "inertia": 84089.81422383977,
         "silhouette": 0.43795669560253253,
         "stability_ari": 0.9974896886649903
       },
@@ -1008,7 +1008,7 @@
       },
       {
         "k": 6,
-        "inertia": 38171.608580268956,
+        "inertia": 38171.60858026896,
         "silhouette": 0.41527167896407463,
         "stability_ari": 0.9889835617187055
       },

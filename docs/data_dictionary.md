@@ -103,6 +103,8 @@ core.dim_customer --+-- core.fact_account_month (customer_id, month_index)
 | `mart.customer_profitability` | customer | `customer_id` | Monthly revenue, costs, expected loss and risk-adjusted contribution (see below) |
 | `mart.customer_360` | customer | `customer_id` | One wide row per customer: profile, behaviour, segment, scores, profitability, actual outcome |
 | `mart.retention_priority` | customer active in Sep | `customer_id` | Value at risk, expected net benefit of a retention contact, priority tier and reason |
+| `mart.retention_budget_curve` | contact cost x customers contacted (every 5th, up to 10% of active) | both | Cumulative expected net benefit when contacting in priority order, for NT$10/50/100 per contact |
+| `mart.value_concentration` | percentile of customers | `top_percent_of_customers` | Cumulative share of estimated contribution from the top X% (Pareto view) |
 
 ### Provenance of profitability columns
 - `obs_*` observed in the data.
