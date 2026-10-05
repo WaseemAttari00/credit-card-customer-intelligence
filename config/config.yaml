@@ -1,0 +1,81 @@
+# Project configuration. Everything machine-specific (DB credentials) lives in .env instead.
+
+random_seed: 42
+
+data:
+  source_url: "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip"
+  raw_file: "data/raw/default of credit card clients.xls"
+  raw_sha256: "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933"
+  currency: "NTD"  # New Taiwan dollars
+
+# The source file is wide: column suffix 1 = September 2005 ... 6 = April 2005.
+# month_index 1 = April (oldest) ... 6 = September (most recent statement).
+months:
+  - {month_index: 1, month_start: "2005-04-01", status_col: PAY_6, bill_col: BILL_AMT6, pay_col: PAY_AMT6}
+  - {month_index: 2, month_start: "2005-05-01", status_col: PAY_5, bill_col: BILL_AMT5, pay_col: PAY_AMT5}
+  - {month_index: 3, month_start: "2005-06-01", status_col: PAY_4, bill_col: BILL_AMT4, pay_col: PAY_AMT4}
+  - {month_index: 4, month_start: "2005-07-01", status_col: PAY_3, bill_col: BILL_AMT3, pay_col: PAY_AMT3}
+  - {month_index: 5, month_start: "2005-08-01", status_col: PAY_2, bill_col: BILL_AMT2, pay_col: PAY_AMT2}
+  - {month_index: 6, month_start: "2005-09-01", status_col: PAY_0, bill_col: BILL_AMT1, pay_col: PAY_AMT1}
+outcome_month: "2005-10-01"   # month the default label refers to
+
+validation:
+  # Pipeline stops if more than this share of rows fail an ERROR-level check
+  max_error_row_share: 0.01
+  age_min: 18
+  age_max: 100
+  # Payment larger than this multiple of the credit limit is treated as implausible (flag only)
+  max_payment_to_limit: 3.0
+  documented_codes:
+    sex: [1, 2]
+    education: [1, 2, 3, 4]
+    marriage: [1, 2, 3]
+  status_range: [-2, 9]
+
+churn:
+  # Dormancy ("silent attrition") definition, see docs/methodology.md
+  lookback_months: 2
+  prediction_months: 2
+  train_snapshot: 2     # May 2005 snapshot -> label from Jun-Jul
+  test_snapshot: 4      # Jul 2005 snapshot -> label from Aug-Sep (out-of-time)
+  score_snapshot: 6     # Sep 2005 snapshot -> predicts Oct-Nov (no label available)
+
+modeling:
+  test_size: 0.2
+  cv_folds: 5
+  # Assumed cost (NTD) of a risk action on a customer who would NOT have defaulted
+  # (unneeded collections contact, limit freeze, lost spend). Unknown, so I report a range.
+  pd_false_positive_costs: [500, 2000, 5000]
+
+# ---------------------------------------------------------------------------
+# Profitability assumptions. These are NOT in the data. They are rough,
+# documented assumptions used to build an educational estimate, not accounting
+# profit. All amounts in NTD.
+# ---------------------------------------------------------------------------
+profitability:
+  apr: 0.18                   # revolving interest rate (Taiwan card rates were close to the 20% legal cap in 2005)
+  interchange_rate: 0.015     # issuer share of purchase volume
+  late_fee: 300               # charged in each month the account is delinquent (status >= 1)
+  rewards_rate: 0.005         # rewards cost as a share of purchase volume
+  cost_of_funds_annual: 0.02  # funding cost on the drawn balance
+  servicing_cost_monthly: 30  # statements, call centre, systems per open account
+  # Expected loss = PD x EAD x LGD
+  # Share of the undrawn limit assumed drawn before default. 12-month CCFs for cards are usually
+  # much higher, but the PD here is for ONE month, so little extra drawdown is possible. With 0.30
+  # the low-balance segments (transactors, dormant) absorbed ~24% of ECL while holding ~4% of balances.
+  ccf: 0.10
+  lgd: 0.80                   # loss share for an unsecured card balance that is charged off
+  # The dataset's "default" label is a missed payment next month, not a charge-off, and it is
+  # very broad (even ~14% of pay-in-full customers are labelled as defaulting). The data has no
+  # charge-offs, so the LEVEL of losses comes from an outside benchmark: the share of default
+  # events that become charge-offs is calibrated so the portfolio's annualised expected loss equals
+  # this rate on outstanding balances. PD x EAD still decides WHICH customers carry the loss.
+  # Benchmark: US bank card charge-off rates were ~3% in early 2006 and peaked at ~10.5% in 2009
+  # (Federal Reserve). Taiwan was in a card-debt crisis in 2005-06, so I use 8% (4% / 12% as sensitivities).
+  target_annual_loss_rate: 0.08
+
+retention:
+  horizon_months: 12          # months of contribution assumed lost if the customer goes dormant
+  contact_cost: 100           # cost of one retention contact/offer
+  save_rate: 0.20             # assumed share of would-be churners kept by the offer (unknown; must be tested)
+  budget_share: 0.10          # scenario: company can contact 10% of active customers

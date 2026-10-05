@@ -1,0 +1,1086 @@
+{
+  "pd": {
+    "chosen_model": "lightgbm",
+    "calibration": "none",
+    "cv_results": [
+      {
+        "model": "logistic_regression",
+        "best_params": "{\"C\": 1.0}",
+        "cv_roc_auc": 0.7768109864709771,
+        "cv_roc_auc_std": 0.004540218677261286,
+        "cv_pr_auc": 0.5419143024734042,
+        "cv_pr_auc_std": 0.00702095074722112,
+        "train_roc_auc": 0.7802846841959529,
+        "train_pr_auc": 0.5460602968507757
+      },
+      {
+        "model": "random_forest",
+        "best_params": "{\"max_depth\": 8, \"min_samples_leaf\": 50}",
+        "cv_roc_auc": 0.7886075802123356,
+        "cv_roc_auc_std": 0.004647150889703364,
+        "cv_pr_auc": 0.5603972206024532,
+        "cv_pr_auc_std": 0.006943667830011994,
+        "train_roc_auc": 0.8150882681300754,
+        "train_pr_auc": 0.6092194330470448
+      },
+      {
+        "model": "lightgbm",
+        "best_params": "{\"min_child_samples\": 50, \"num_leaves\": 7}",
+        "cv_roc_auc": 0.7891906242107329,
+        "cv_roc_auc_std": 0.004594689947891433,
+        "cv_pr_auc": 0.5643614057141578,
+        "cv_pr_auc_std": 0.004281766841711843,
+        "train_roc_auc": 0.8201941280465757,
+        "train_pr_auc": 0.6140353697535044
+      }
+    ],
+    "calibration_table": [
+      {
+        "method": "none",
+        "brier": 0.13249631835548972,
+        "ece": 0.006010317500418383,
+        "mean_predicted": 0.22089265931955834,
+        "base_rate": 0.22120833333333334
+      },
+      {
+        "method": "sigmoid",
+        "brier": 0.13249499248122557,
+        "ece": 0.005846586938884738,
+        "mean_predicted": 0.22100249853907114,
+        "base_rate": 0.22120833333333334
+      },
+      {
+        "method": "isotonic",
+        "brier": 0.13259954030876964,
+        "ece": 0.007543097267692558,
+        "mean_predicted": 0.22112749852895072,
+        "base_rate": 0.22120833333333334
+      }
+    ],
+    "test_comparison": [
+      {
+        "model": "logistic_regression",
+        "test_roc_auc": 0.7701399484056867,
+        "test_pr_auc": 0.5334545756604012,
+        "test_brier": 0.1377407246232515
+      },
+      {
+        "model": "random_forest",
+        "test_roc_auc": 0.7825650601323546,
+        "test_pr_auc": 0.5663066229352504,
+        "test_brier": 0.1342554545529561
+      },
+      {
+        "model": "lightgbm",
+        "test_roc_auc": 0.7846524414895426,
+        "test_pr_auc": 0.5658327886003134,
+        "test_brier": 0.13368116178048106
+      }
+    ],
+    "test_metrics": {
+      "at_0.3": {
+        "n": 6000,
+        "base_rate": 0.22116666666666668,
+        "roc_auc": 0.7846524414895426,
+        "gini": 0.5693048829790852,
+        "pr_auc": 0.5658327886003134,
+        "brier": 0.13368116178048106,
+        "log_loss": 0.42617303576065996,
+        "mean_predicted": 0.22208551877613938,
+        "threshold": 0.3,
+        "precision": 0.537956204379562,
+        "recall": 0.5553880934438583,
+        "f1": 0.546533185020393,
+        "tp": 737,
+        "fp": 633,
+        "tn": 4040,
+        "fn": 590
+      },
+      "at_0.5": {
+        "n": 6000,
+        "base_rate": 0.22116666666666668,
+        "roc_auc": 0.7846524414895426,
+        "gini": 0.5693048829790852,
+        "pr_auc": 0.5658327886003134,
+        "brier": 0.13368116178048106,
+        "log_loss": 0.42617303576065996,
+        "mean_predicted": 0.22208551877613938,
+        "threshold": 0.5,
+        "precision": 0.6693657219973009,
+        "recall": 0.373775433308214,
+        "f1": 0.4796905222437137,
+        "tp": 496,
+        "fp": 245,
+        "tn": 4428,
+        "fn": 831
+      }
+    },
+    "oof_metrics": {
+      "n": 30000,
+      "base_rate": 0.2212,
+      "roc_auc": 0.7883118340772278,
+      "gini": 0.5766236681544556,
+      "pr_auc": 0.5657734891878651,
+      "brier": 0.13263174616621007,
+      "log_loss": 0.42324876084318425,
+      "mean_predicted": 0.22096496058137208,
+      "threshold": 0.5,
+      "precision": 0.6738719265063496,
+      "recall": 0.3758288125376733,
+      "f1": 0.48253845409693336,
+      "tp": 2494,
+      "fp": 1207,
+      "tn": 22157,
+      "fn": 4142
+    },
+    "lift": [
+      {
+        "decile": 1,
+        "n": 600,
+        "positives": 421,
+        "mean_predicted": 0.7122743216588667,
+        "observed_rate": 0.7016666666666667,
+        "lift": 3.1725697061039937,
+        "cum_capture": 0.3172569706103994
+      },
+      {
+        "decile": 2,
+        "n": 600,
+        "positives": 262,
+        "mean_predicted": 0.4424538373964027,
+        "observed_rate": 0.43666666666666665,
+        "lift": 1.9743782969103238,
+        "cum_capture": 0.5146948003014318
+      },
+      {
+        "decile": 3,
+        "n": 600,
+        "positives": 159,
+        "mean_predicted": 0.27525107098214385,
+        "observed_rate": 0.265,
+        "lift": 1.1981914091936698,
+        "cum_capture": 0.6345139412207988
+      },
+      {
+        "decile": 4,
+        "n": 600,
+        "positives": 118,
+        "mean_predicted": 0.1962018198951183,
+        "observed_rate": 0.19666666666666666,
+        "lift": 0.8892238131122833,
+        "cum_capture": 0.7234363225320272
+      },
+      {
+        "decile": 5,
+        "n": 600,
+        "positives": 107,
+        "mean_predicted": 0.16088455836036716,
+        "observed_rate": 0.17833333333333334,
+        "lift": 0.8063300678221552,
+        "cum_capture": 0.8040693293142427
+      },
+      {
+        "decile": 6,
+        "n": 600,
+        "positives": 77,
+        "mean_predicted": 0.1344143538004023,
+        "observed_rate": 0.12833333333333333,
+        "lift": 0.5802562170308967,
+        "cum_capture": 0.8620949510173324
+      },
+      {
+        "decile": 7,
+        "n": 600,
+        "positives": 69,
+        "mean_predicted": 0.10941589859455018,
+        "observed_rate": 0.115,
+        "lift": 0.5199698568198945,
+        "cum_capture": 0.9140919366993218
+      },
+      {
+        "decile": 8,
+        "n": 600,
+        "positives": 46,
+        "mean_predicted": 0.08597745323526962,
+        "observed_rate": 0.07666666666666666,
+        "lift": 0.346646571213263,
+        "cum_capture": 0.948756593820648
+      },
+      {
+        "decile": 9,
+        "n": 600,
+        "positives": 39,
+        "mean_predicted": 0.06298124483745558,
+        "observed_rate": 0.065,
+        "lift": 0.293896006028636,
+        "cum_capture": 0.9781461944235117
+      },
+      {
+        "decile": 10,
+        "n": 600,
+        "positives": 29,
+        "mean_predicted": 0.04100062900081739,
+        "observed_rate": 0.04833333333333333,
+        "lift": 0.21853805576488317,
+        "cum_capture": 1.0
+      }
+    ],
+    "calibration_curve": [
+      {
+        "mean_predicted": 0.0410006290008174,
+        "observed_rate": 0.04833333333333333
+      },
+      {
+        "mean_predicted": 0.06298124483745562,
+        "observed_rate": 0.065
+      },
+      {
+        "mean_predicted": 0.08597745323526963,
+        "observed_rate": 0.07666666666666666
+      },
+      {
+        "mean_predicted": 0.10941589859455021,
+        "observed_rate": 0.115
+      },
+      {
+        "mean_predicted": 0.13441435380040237,
+        "observed_rate": 0.12833333333333333
+      },
+      {
+        "mean_predicted": 0.16088455836036739,
+        "observed_rate": 0.17833333333333334
+      },
+      {
+        "mean_predicted": 0.19620181989511817,
+        "observed_rate": 0.19666666666666666
+      },
+      {
+        "mean_predicted": 0.275251070982144,
+        "observed_rate": 0.265
+      },
+      {
+        "mean_predicted": 0.4424538373964031,
+        "observed_rate": 0.43666666666666665
+      },
+      {
+        "mean_predicted": 0.712274321658867,
+        "observed_rate": 0.7016666666666667
+      }
+    ],
+    "thresholds": [
+      {
+        "threshold": 0.1,
+        "share_flagged": 0.6871666666666667,
+        "precision": 0.2927479990298327,
+        "recall": 0.9095704596834966,
+        "tp": 1207,
+        "fp": 2916,
+        "fn": 120
+      },
+      {
+        "threshold": 0.2,
+        "share_flagged": 0.3395,
+        "precision": 0.43151693667157587,
+        "recall": 0.6623963828183873,
+        "tp": 879,
+        "fp": 1158,
+        "fn": 448
+      },
+      {
+        "threshold": 0.3,
+        "share_flagged": 0.22833333333333333,
+        "precision": 0.537956204379562,
+        "recall": 0.5553880934438583,
+        "tp": 737,
+        "fp": 633,
+        "fn": 590
+      },
+      {
+        "threshold": 0.4,
+        "share_flagged": 0.16466666666666666,
+        "precision": 0.6072874493927125,
+        "recall": 0.45214770158251694,
+        "tp": 600,
+        "fp": 388,
+        "fn": 727
+      },
+      {
+        "threshold": 0.5,
+        "share_flagged": 0.1235,
+        "precision": 0.6693657219973009,
+        "recall": 0.373775433308214,
+        "tp": 496,
+        "fp": 245,
+        "fn": 831
+      },
+      {
+        "threshold": 0.6,
+        "share_flagged": 0.09966666666666667,
+        "precision": 0.7023411371237458,
+        "recall": 0.3165033911077619,
+        "tp": 420,
+        "fp": 178,
+        "fn": 907
+      },
+      {
+        "threshold": 0.7,
+        "share_flagged": 0.05333333333333334,
+        "precision": 0.765625,
+        "recall": 0.18462697814619441,
+        "tp": 245,
+        "fp": 75,
+        "fn": 1082
+      },
+      {
+        "threshold": 0.8,
+        "share_flagged": 0.0075,
+        "precision": 0.8888888888888888,
+        "recall": 0.03014318010550113,
+        "tp": 40,
+        "fp": 5,
+        "fn": 1287
+      },
+      {
+        "threshold": 0.9,
+        "share_flagged": 0.0,
+        "precision": NaN,
+        "recall": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1327
+      }
+    ],
+    "cost_table": [
+      {
+        "c_fp": 500,
+        "c_fn": 1531.6681649165505,
+        "threshold": 0.2461031819241688,
+        "share_flagged": 0.2728333333333333,
+        "precision": 0.4923640806353085,
+        "recall": 0.6073850791258478,
+        "expected_cost_per_customer": 202.2498523202538
+      },
+      {
+        "c_fp": 2000,
+        "c_fn": 1531.6681649165505,
+        "threshold": 0.5663046205382261,
+        "share_flagged": 0.10816666666666666,
+        "precision": 0.687211093990755,
+        "recall": 0.3360964581763376,
+        "expected_cost_per_customer": 292.5666088819135
+      },
+      {
+        "c_fp": 5000,
+        "c_fn": 1531.6681649165505,
+        "threshold": 0.7655012278266713,
+        "share_flagged": 0.022333333333333334,
+        "precision": 0.8283582089552238,
+        "recall": 0.08364732479276564,
+        "expected_cost_per_customer": 329.5847480897542
+      }
+    ],
+    "importance": [
+      {
+        "feature": "months_since_delinquent",
+        "mean_abs_shap": 0.2839206812056439,
+        "feature_label": "Months since last delinquency",
+        "rank": 1
+      },
+      {
+        "feature": "status_latest",
+        "mean_abs_shap": 0.20536439353596112,
+        "feature_label": "Sep repayment status",
+        "rank": 2
+      },
+      {
+        "feature": "max_status_6m",
+        "mean_abs_shap": 0.17049748722006675,
+        "feature_label": "Worst repayment status (6m)",
+        "rank": 3
+      },
+      {
+        "feature": "available_credit",
+        "mean_abs_shap": 0.1657076840786818,
+        "feature_label": "Available credit",
+        "rank": 4
+      },
+      {
+        "feature": "new_charges_avg",
+        "mean_abs_shap": 0.11258191661433198,
+        "feature_label": "Avg new charges",
+        "rank": 5
+      },
+      {
+        "feature": "bill_latest",
+        "mean_abs_shap": 0.09255460978935298,
+        "feature_label": "Balance (Sep)",
+        "rank": 6
+      },
+      {
+        "feature": "bill_avg_6m",
+        "mean_abs_shap": 0.09057439486067712,
+        "feature_label": "Average balance (6m)",
+        "rank": 7
+      },
+      {
+        "feature": "payment_total_6m",
+        "mean_abs_shap": 0.08647872117600795,
+        "feature_label": "Total paid (6m)",
+        "rank": 8
+      },
+      {
+        "feature": "months_60plus_6m",
+        "mean_abs_shap": 0.0792600810916298,
+        "feature_label": "Months 60+ days late (6m)",
+        "rank": 9
+      },
+      {
+        "feature": "payment_ratio_min",
+        "mean_abs_shap": 0.07398464295951364,
+        "feature_label": "Lowest share of bill paid",
+        "rank": 10
+      },
+      {
+        "feature": "payment_latest",
+        "mean_abs_shap": 0.05614967814248984,
+        "feature_label": "Payment (Sep)",
+        "rank": 11
+      },
+      {
+        "feature": "new_charges_trend",
+        "mean_abs_shap": 0.05522434442742612,
+        "feature_label": "New charges trend",
+        "rank": 12
+      },
+      {
+        "feature": "age",
+        "mean_abs_shap": 0.04719756616361373,
+        "feature_label": "Age",
+        "rank": 13
+      },
+      {
+        "feature": "util_latest",
+        "mean_abs_shap": 0.03477087230418823,
+        "feature_label": "Utilization (Sep)",
+        "rank": 14
+      },
+      {
+        "feature": "util_max_6m",
+        "mean_abs_shap": 0.03405740577490678,
+        "feature_label": "Peak utilization (6m)",
+        "rank": 15
+      },
+      {
+        "feature": "new_charges_to_limit",
+        "mean_abs_shap": 0.031541263877161094,
+        "feature_label": "Avg new charges / limit",
+        "rank": 16
+      },
+      {
+        "feature": "months_delinquent_6m",
+        "mean_abs_shap": 0.02993289517538029,
+        "feature_label": "Months delinquent (6m)",
+        "rank": 17
+      },
+      {
+        "feature": "months_paid_in_full",
+        "mean_abs_shap": 0.02814799570704518,
+        "feature_label": "Months paid in full",
+        "rank": 18
+      },
+      {
+        "feature": "util_trend_6m",
+        "mean_abs_shap": 0.026903630548050995,
+        "feature_label": "Utilization trend (per month)",
+        "rank": 19
+      },
+      {
+        "feature": "credit_limit",
+        "mean_abs_shap": 0.026146626687100213,
+        "feature_label": "Credit limit",
+        "rank": 20
+      },
+      {
+        "feature": "education",
+        "mean_abs_shap": 0.025667376915552306,
+        "feature_label": "Education",
+        "rank": 21
+      },
+      {
+        "feature": "payment_ratio_latest",
+        "mean_abs_shap": 0.022805530698358552,
+        "feature_label": "Share of bill paid (Sep)",
+        "rank": 22
+      },
+      {
+        "feature": "util_avg_6m",
+        "mean_abs_shap": 0.018244577751213947,
+        "feature_label": "Average utilization (6m)",
+        "rank": 23
+      },
+      {
+        "feature": "payment_ratio_avg",
+        "mean_abs_shap": 0.015093798146503214,
+        "feature_label": "Avg share of bill paid",
+        "rank": 24
+      },
+      {
+        "feature": "payment_to_limit_6m",
+        "mean_abs_shap": 0.014336751820032585,
+        "feature_label": "Total paid / limit",
+        "rank": 25
+      },
+      {
+        "feature": "months_missed_payment",
+        "mean_abs_shap": 0.011328929301664696,
+        "feature_label": "Months with no payment",
+        "rank": 26
+      },
+      {
+        "feature": "status_prev",
+        "mean_abs_shap": 0.006815227325793747,
+        "feature_label": "Aug repayment status",
+        "rank": 27
+      },
+      {
+        "feature": "months_inactive_5m",
+        "mean_abs_shap": 0.004978463990295115,
+        "feature_label": "Inactive months",
+        "rank": 28
+      },
+      {
+        "feature": "months_over_limit",
+        "mean_abs_shap": 0.004288344089365034,
+        "feature_label": "Months over limit",
+        "rank": 29
+      },
+      {
+        "feature": "months_credit_balance",
+        "mean_abs_shap": 0.002441152382441525,
+        "feature_label": "Months with credit balance",
+        "rank": 30
+      },
+      {
+        "feature": "delinquent_streak",
+        "mean_abs_shap": 0.0017659263652108994,
+        "feature_label": "Consecutive late months",
+        "rank": 31
+      }
+    ],
+    "fairness": [
+      {
+        "sex": "Female",
+        "customers": 18112,
+        "actual_default_rate": 0.20776280918727916,
+        "mean_pd": 0.21214902514976897
+      },
+      {
+        "sex": "Male",
+        "customers": 11888,
+        "actual_default_rate": 0.2416722745625841,
+        "mean_pd": 0.2343965068917014
+      }
+    ],
+    "chargeoff_share": 0.03412830943576784,
+    "n_train": 24000,
+    "n_test": 6000
+  },
+  "churn": {
+    "chosen_model": "random_forest",
+    "calibration": "none",
+    "cv_results": [
+      {
+        "model": "logistic_regression",
+        "best_params": "{\"C\": 1.0}",
+        "cv_roc_auc": 0.8878404868438455,
+        "cv_roc_auc_std": 0.01573866630605097,
+        "cv_pr_auc": 0.12864043437576625,
+        "cv_pr_auc_std": 0.019621694472980056,
+        "train_roc_auc": 0.8925785980553329,
+        "train_pr_auc": 0.13099288311210772
+      },
+      {
+        "model": "random_forest",
+        "best_params": "{\"max_depth\": 12, \"min_samples_leaf\": 20}",
+        "cv_roc_auc": 0.8909993766745666,
+        "cv_roc_auc_std": 0.020811522132249172,
+        "cv_pr_auc": 0.15884265581763507,
+        "cv_pr_auc_std": 0.029774139544930345,
+        "train_roc_auc": 0.9720968860356669,
+        "train_pr_auc": 0.383839305205522
+      },
+      {
+        "model": "lightgbm",
+        "best_params": "{\"min_child_samples\": 50, \"num_leaves\": 7}",
+        "cv_roc_auc": 0.8949903294518107,
+        "cv_roc_auc_std": 0.017859303288301324,
+        "cv_pr_auc": 0.14576416854991286,
+        "cv_pr_auc_std": 0.02811339513873393,
+        "train_roc_auc": 0.9625718241735608,
+        "train_pr_auc": 0.4261783864337918
+      },
+      {
+        "model": "lightgbm_weighted",
+        "best_params": "{\"min_child_samples\": 150, \"num_leaves\": 15}",
+        "cv_roc_auc": 0.888861654196262,
+        "cv_roc_auc_std": 0.021246378620978838,
+        "cv_pr_auc": 0.14153749963531082,
+        "cv_pr_auc_std": 0.024580972790659978,
+        "train_roc_auc": 0.9854006882248807,
+        "train_pr_auc": 0.4328766846332427
+      }
+    ],
+    "calibration_table": [
+      {
+        "method": "none",
+        "brier": 0.014808408612793289,
+        "ece": 0.0012925631965099661,
+        "mean_predicted": 0.01649381972050292,
+        "base_rate": 0.01634877384196185
+      },
+      {
+        "method": "sigmoid",
+        "brier": 0.015283799206407558,
+        "ece": 0.008044089478212751,
+        "mean_predicted": 0.01639242692789115,
+        "base_rate": 0.01634877384196185
+      },
+      {
+        "method": "isotonic",
+        "brier": 0.014990055845466001,
+        "ece": 0.0007680761104565576,
+        "mean_predicted": 0.01634301840772723,
+        "base_rate": 0.01634877384196185
+      }
+    ],
+    "test_comparison": [
+      {
+        "model": "logistic_regression",
+        "test_roc_auc": 0.90344434585748,
+        "test_pr_auc": 0.1162556663305768,
+        "test_brier": 0.011267985879902534
+      },
+      {
+        "model": "random_forest",
+        "test_roc_auc": 0.8996116699402393,
+        "test_pr_auc": 0.10817286101416064,
+        "test_brier": 0.011283587649280372
+      },
+      {
+        "model": "lightgbm",
+        "test_roc_auc": 0.9112359657462372,
+        "test_pr_auc": 0.13175256627027723,
+        "test_brier": 0.011105400957622573
+      },
+      {
+        "model": "lightgbm_weighted",
+        "test_roc_auc": 0.9092395797141385,
+        "test_pr_auc": 0.13004897071020832,
+        "test_brier": 0.06324688025436162
+      }
+    ],
+    "test_metrics": {
+      "at_top_10pct": {
+        "n": 26681,
+        "base_rate": 0.012105993028747049,
+        "roc_auc": 0.8996116699402393,
+        "gini": 0.7992233398804787,
+        "pr_auc": 0.10817286101416064,
+        "brier": 0.011283587649280372,
+        "log_loss": 0.049773247700807335,
+        "mean_predicted": 0.015168746813010496,
+        "threshold": 0.04740026917268958,
+        "precision": 0.08205320344698389,
+        "recall": 0.6780185758513931,
+        "f1": 0.1463903743315508,
+        "tp": 219,
+        "fp": 2450,
+        "tn": 23908,
+        "fn": 104
+      },
+      "at_0.5": {
+        "n": 26681,
+        "base_rate": 0.012105993028747049,
+        "roc_auc": 0.8996116699402393,
+        "gini": 0.7992233398804787,
+        "pr_auc": 0.10817286101416064,
+        "brier": 0.011283587649280372,
+        "log_loss": 0.049773247700807335,
+        "mean_predicted": 0.015168746813010496,
+        "threshold": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "tn": 26358,
+        "fn": 323
+      }
+    },
+    "train_metrics": {
+      "n": 26057,
+      "base_rate": 0.01634877384196185,
+      "roc_auc": 0.9715734485986838,
+      "gini": 0.9431468971973676,
+      "pr_auc": 0.384533153272181,
+      "brier": 0.013102860812812669,
+      "log_loss": 0.048262909789640915,
+      "mean_predicted": 0.0164940377086148,
+      "threshold": 0.04740026917268958,
+      "precision": 0.1420940170940171,
+      "recall": 0.9366197183098591,
+      "f1": 0.24675324675324675,
+      "tp": 399,
+      "fp": 2409,
+      "tn": 23222,
+      "fn": 27
+    },
+    "lift": [
+      {
+        "decile": 1,
+        "n": 2669,
+        "positives": 219,
+        "mean_predicted": 0.10096897854734968,
+        "observed_rate": 0.08205320344698389,
+        "lift": 6.777899446343582,
+        "cum_capture": 0.6780185758513931
+      },
+      {
+        "decile": 2,
+        "n": 2668,
+        "positives": 52,
+        "mean_predicted": 0.029613255105926304,
+        "observed_rate": 0.019490254872563718,
+        "lift": 1.6099674620893887,
+        "cum_capture": 0.8390092879256966
+      },
+      {
+        "decile": 3,
+        "n": 2668,
+        "positives": 30,
+        "mean_predicted": 0.011997383555272405,
+        "observed_rate": 0.011244377811094454,
+        "lift": 0.9288273819746474,
+        "cum_capture": 0.9318885448916409
+      },
+      {
+        "decile": 4,
+        "n": 2668,
+        "positives": 8,
+        "mean_predicted": 0.004775866436475,
+        "observed_rate": 0.0029985007496251873,
+        "lift": 0.24768730185990595,
+        "cum_capture": 0.9566563467492261
+      },
+      {
+        "decile": 5,
+        "n": 2668,
+        "positives": 1,
+        "mean_predicted": 0.0020564706652582564,
+        "observed_rate": 0.0003748125937031484,
+        "lift": 0.030960912732488244,
+        "cum_capture": 0.9597523219814241
+      },
+      {
+        "decile": 6,
+        "n": 2668,
+        "positives": 6,
+        "mean_predicted": 0.0010409104836366506,
+        "observed_rate": 0.0022488755622188904,
+        "lift": 0.18576547639492946,
+        "cum_capture": 0.978328173374613
+      },
+      {
+        "decile": 7,
+        "n": 2668,
+        "positives": 3,
+        "mean_predicted": 0.0005870642880319471,
+        "observed_rate": 0.0011244377811094452,
+        "lift": 0.09288273819746473,
+        "cum_capture": 0.9876160990712074
+      },
+      {
+        "decile": 8,
+        "n": 2668,
+        "positives": 3,
+        "mean_predicted": 0.0003389916631323098,
+        "observed_rate": 0.0011244377811094452,
+        "lift": 0.09288273819746473,
+        "cum_capture": 0.9969040247678018
+      },
+      {
+        "decile": 9,
+        "n": 2668,
+        "positives": 0,
+        "mean_predicted": 0.0001846610313597012,
+        "observed_rate": 0.0,
+        "lift": 0.0,
+        "cum_capture": 0.9969040247678018
+      },
+      {
+        "decile": 10,
+        "n": 2668,
+        "positives": 1,
+        "mean_predicted": 9.172734626603307e-05,
+        "observed_rate": 0.0003748125937031484,
+        "lift": 0.030960912732488244,
+        "cum_capture": 1.0
+      }
+    ],
+    "calibration_curve": [
+      {
+        "mean_predicted": 0.00013821485554652585,
+        "observed_rate": 0.00018737118231216038
+      },
+      {
+        "mean_predicted": 0.0004631235435905261,
+        "observed_rate": 0.0011244377811094452
+      },
+      {
+        "mean_predicted": 0.001549096814489411,
+        "observed_rate": 0.0013118440779610195
+      },
+      {
+        "mean_predicted": 0.008389444544674808,
+        "observed_rate": 0.00712143928035982
+      },
+      {
+        "mean_predicted": 0.06530667112308505,
+        "observed_rate": 0.050787106446776614
+      }
+    ],
+    "importance": [
+      {
+        "feature": "util_t",
+        "mean_abs_shap": 0.004343402578439481,
+        "feature_label": "Utilization (this month)",
+        "rank": 1
+      },
+      {
+        "feature": "bill_t",
+        "mean_abs_shap": 0.0035887271784976658,
+        "feature_label": "Balance (this month)",
+        "rank": 2
+      },
+      {
+        "feature": "bill_tm1",
+        "mean_abs_shap": 0.003359687114517835,
+        "feature_label": "Balance (last month)",
+        "rank": 3
+      },
+      {
+        "feature": "util_tm1",
+        "mean_abs_shap": 0.0025402634590059045,
+        "feature_label": "Utilization (last month)",
+        "rank": 4
+      },
+      {
+        "feature": "payment_tm1",
+        "mean_abs_shap": 0.0023562178075214823,
+        "feature_label": "Payment (last month)",
+        "rank": 5
+      },
+      {
+        "feature": "payment_ratio_t",
+        "mean_abs_shap": 0.001933660688527523,
+        "feature_label": "Share of last bill paid",
+        "rank": 6
+      },
+      {
+        "feature": "charges_to_limit_t",
+        "mean_abs_shap": 0.0018771642265231147,
+        "feature_label": "New charges / limit",
+        "rank": 7
+      },
+      {
+        "feature": "charges_t",
+        "mean_abs_shap": 0.0017523557660486966,
+        "feature_label": "New charges (this month)",
+        "rank": 8
+      },
+      {
+        "feature": "balance_retention_t",
+        "mean_abs_shap": 0.0014223167868595914,
+        "feature_label": "Balance kept vs last month",
+        "rank": 9
+      },
+      {
+        "feature": "util_change",
+        "mean_abs_shap": 0.0013401323243941172,
+        "feature_label": "Utilization change",
+        "rank": 10
+      },
+      {
+        "feature": "zero_balance_tm1",
+        "mean_abs_shap": 0.0012841842694687883,
+        "feature_label": "Zero balance last month",
+        "rank": 11
+      },
+      {
+        "feature": "payment_to_limit_t",
+        "mean_abs_shap": 0.001056964516940021,
+        "feature_label": "Payment / limit",
+        "rank": 12
+      },
+      {
+        "feature": "payment_t",
+        "mean_abs_shap": 0.0009615307444577215,
+        "feature_label": "Payment (this month)",
+        "rank": 13
+      },
+      {
+        "feature": "credit_limit",
+        "mean_abs_shap": 0.0009289763005520616,
+        "feature_label": "Credit limit",
+        "rank": 14
+      },
+      {
+        "feature": "delinquent_60plus_t",
+        "mean_abs_shap": 0.0009178818036050967,
+        "feature_label": "60+ days late now",
+        "rank": 15
+      },
+      {
+        "feature": "paid_in_full_t",
+        "mean_abs_shap": 0.0005272474504334146,
+        "feature_label": "Paid in full this month",
+        "rank": 16
+      },
+      {
+        "feature": "education",
+        "mean_abs_shap": 0.0005272033828149978,
+        "feature_label": "Education",
+        "rank": 17
+      },
+      {
+        "feature": "age",
+        "mean_abs_shap": 0.0004884110103099639,
+        "feature_label": "Age",
+        "rank": 18
+      },
+      {
+        "feature": "delinquent_60plus_tm1",
+        "mean_abs_shap": 9.877754372951465e-05,
+        "feature_label": "60+ days late last month",
+        "rank": 19
+      },
+      {
+        "feature": "zero_balance_t",
+        "mean_abs_shap": 3.505988055676767e-05,
+        "feature_label": "Zero balance this month",
+        "rank": 20
+      }
+    ],
+    "threshold_top10": 0.04740026917268958,
+    "n_train": 26057,
+    "n_test": 26681,
+    "train_rate": 0.01634877384196185,
+    "test_rate": 0.012105993028747049,
+    "score_rows": 27606,
+    "labeled_rows_production": 79088
+  },
+  "segmentation": {
+    "chosen_k": 5,
+    "k_selection": [
+      {
+        "k": 2,
+        "inertia": 108148.90566629652,
+        "silhouette": 0.41367556907196135,
+        "stability_ari": 0.9966130894522397
+      },
+      {
+        "k": 3,
+        "inertia": 84089.81422383978,
+        "silhouette": 0.43795669560253253,
+        "stability_ari": 0.9974896886649903
+      },
+      {
+        "k": 4,
+        "inertia": 61372.55641372046,
+        "silhouette": 0.448977934828141,
+        "stability_ari": 0.9987315242602289
+      },
+      {
+        "k": 5,
+        "inertia": 47165.07121486747,
+        "silhouette": 0.4300754743746357,
+        "stability_ari": 0.9847534870093068
+      },
+      {
+        "k": 6,
+        "inertia": 38171.608580268956,
+        "silhouette": 0.41527167896407463,
+        "stability_ari": 0.9889835617187055
+      },
+      {
+        "k": 7,
+        "inertia": 34434.056192659555,
+        "silhouette": 0.3780637625870634,
+        "stability_ari": 0.9930055605515568
+      },
+      {
+        "k": 8,
+        "inertia": 31240.660198786052,
+        "silhouette": 0.3741501072094288,
+        "stability_ari": 0.9104471588109572
+      }
+    ],
+    "profile": [
+      {
+        "segment": "Delinquent revolvers",
+        "customers": 3156,
+        "avg_utilization": 0.6106775791115108,
+        "avg_payment_ratio": 0.2267344548973268,
+        "share_months_paid_in_full": 0.00893536121673004,
+        "share_months_inactive": 0.0034220532319391636,
+        "new_charges_to_limit": 0.030117125361072798,
+        "share_months_60plus": 0.7480988593155894,
+        "avg_credit_limit": 94017.74397972117
+      },
+      {
+        "segment": "Dormant / low use",
+        "customers": 3564,
+        "avg_utilization": 0.02508685273939022,
+        "avg_payment_ratio": 0.960070954746208,
+        "share_months_paid_in_full": 0.16217732884399552,
+        "share_months_inactive": 0.7248597081930416,
+        "new_charges_to_limit": 0.019642621263311323,
+        "share_months_60plus": 0.023756079311634863,
+        "avg_credit_limit": 197836.70033670033
+      },
+      {
+        "segment": "Heavy-spend revolvers",
+        "customers": 4026,
+        "avg_utilization": 0.6073146628171481,
+        "avg_payment_ratio": 0.3961386141778683,
+        "share_months_paid_in_full": 0.10248385494287134,
+        "share_months_inactive": 0.038897168405365126,
+        "new_charges_to_limit": 0.20534216460549665,
+        "share_months_60plus": 0.0542722305017387,
+        "avg_credit_limit": 97302.53353204172
+      },
+      {
+        "segment": "Revolvers",
+        "customers": 12073,
+        "avg_utilization": 0.5293010546000609,
+        "avg_payment_ratio": 0.2544692006588623,
+        "share_months_paid_in_full": 0.015074960656009277,
+        "share_months_inactive": 0.003114387476186532,
+        "new_charges_to_limit": 0.04791137188285872,
+        "share_months_60plus": 0.05640685827880394,
+        "avg_credit_limit": 163811.784974737
+      },
+      {
+        "segment": "Transactors",
+        "customers": 7181,
+        "avg_utilization": 0.04221480820347634,
+        "avg_payment_ratio": 0.8985076166833945,
+        "share_months_paid_in_full": 0.746219189527921,
+        "share_months_inactive": 0.06467065868263473,
+        "new_charges_to_limit": 0.033515309525114674,
+        "share_months_60plus": 0.028617184236178806,
+        "avg_credit_limit": 230229.7730121153
+      }
+    ]
+  }
+}

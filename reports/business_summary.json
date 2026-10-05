@@ -1,0 +1,446 @@
+{
+  "executive_kpis": [
+    {
+      "customers": 30000,
+      "active_customers_sep": 27606,
+      "total_balance_sep": 1537381257.0,
+      "total_credit_limit": 5024529680.0,
+      "portfolio_utilization": 0.30597515686284094,
+      "est_monthly_purchase_volume": 219027147.4360013,
+      "est_monthly_revenue": 21995435.694540024,
+      "est_monthly_contribution_before_losses": 17688855.22935994,
+      "ecl_next_month": 10249208.380000051,
+      "est_monthly_risk_adj_contribution": 7439646.849359939,
+      "actual_default_rate_oct": 0.2212,
+      "avg_predicted_pd": 0.2209649605813712,
+      "avg_predicted_dormancy": 0.013530668202585295,
+      "share_loss_making": 0.38106666666666666
+    }
+  ],
+  "segment_summary": [
+    {
+      "segment": "Revolvers",
+      "customers": 12073,
+      "share_of_customers": 0.4024333333333333,
+      "avg_credit_limit": 163811.784974737,
+      "avg_utilization": 0.5298784956734749,
+      "avg_payment_ratio": 0.2544692006588623,
+      "avg_monthly_purchases": 6490.485445870963,
+      "actual_default_rate": 0.16325685413733124,
+      "avg_pd": 0.16570741302742586,
+      "avg_dormancy_score": 0.003470775675023307,
+      "active_in_sep": 12031,
+      "total_monthly_revenue": 13562089.004820038,
+      "total_ecl": 4191042.0746571985,
+      "total_risk_adj_contribution": 7123025.4735561125,
+      "avg_risk_adj_contribution": 589.9963118989574,
+      "share_loss_making": 0.09119522902344074,
+      "share_of_total_contribution": 0.9574413433574399
+    },
+    {
+      "segment": "Heavy-spend revolvers",
+      "customers": 4026,
+      "share_of_customers": 0.1342,
+      "avg_credit_limit": 97302.53353204174,
+      "avg_utilization": 0.6141340323210194,
+      "avg_payment_ratio": 0.3961386141778683,
+      "avg_monthly_purchases": 19209.58816517638,
+      "actual_default_rate": 0.20268256333830104,
+      "avg_pd": 0.20144439456865804,
+      "avg_dormancy_score": 0.0026216587883048903,
+      "active_in_sep": 4008,
+      "total_monthly_revenue": 3882351.503294991,
+      "total_ecl": 1812118.099775887,
+      "total_risk_adj_contribution": 1143426.8610874466,
+      "avg_risk_adj_contribution": 284.0106460723911,
+      "share_loss_making": 0.16145057128663687,
+      "share_of_total_contribution": 0.15369370135973887
+    },
+    {
+      "segment": "Transactors",
+      "customers": 7181,
+      "share_of_customers": 0.23936666666666667,
+      "avg_credit_limit": 230229.7730121153,
+      "avg_utilization": 0.04206539073094014,
+      "avg_payment_ratio": 0.8985076166833946,
+      "avg_monthly_purchases": 6826.97023422922,
+      "actual_default_rate": 0.14385183122127837,
+      "avg_pd": 0.13991362798608628,
+      "avg_dormancy_score": 0.027463048554120035,
+      "active_in_sep": 6689,
+      "total_monthly_revenue": 1052335.881779998,
+      "total_ecl": 665851.0156713352,
+      "total_risk_adj_contribution": -176784.06715133504,
+      "avg_risk_adj_contribution": -24.618307638397862,
+      "share_loss_making": 0.7221835398969503,
+      "share_of_total_contribution": -0.023762427267168568
+    },
+    {
+      "segment": "Delinquent revolvers",
+      "customers": 3156,
+      "share_of_customers": 0.1052,
+      "avg_credit_limit": 94017.74397972117,
+      "avg_utilization": 0.6119388631625203,
+      "avg_payment_ratio": 0.2267344548973268,
+      "avg_monthly_purchases": 1794.3171856780723,
+      "actual_default_rate": 0.6280101394169835,
+      "avg_pd": 0.6255544570164439,
+      "avg_dormancy_score": 0.004991096833264703,
+      "active_in_sep": 3154,
+      "total_monthly_revenue": 3213071.475570004,
+      "total_ecl": 3014207.18305976,
+      "total_risk_adj_contribution": -199690.75001309204,
+      "avg_risk_adj_contribution": -63.27336819172751,
+      "share_loss_making": 0.4071609632446134,
+      "share_of_total_contribution": -0.026841428639892032
+    },
+    {
+      "segment": "Dormant / low use",
+      "customers": 3564,
+      "share_of_customers": 0.1188,
+      "avg_credit_limit": 197836.70033670033,
+      "avg_utilization": 0.024792664761603064,
+      "avg_payment_ratio": 0.960070954746208,
+      "avg_monthly_purchases": 2424.9092045454577,
+      "actual_default_rate": 0.234006734006734,
+      "avg_pd": 0.23523525772044265,
+      "avg_dormancy_score": 0.07066175443167821,
+      "active_in_sep": 1724,
+      "total_monthly_revenue": 285587.8290750001,
+      "total_ecl": 565990.0068358734,
+      "total_risk_adj_contribution": -450330.6681192064,
+      "avg_risk_adj_contribution": -126.35540631852031,
+      "share_loss_making": 0.9006734006734006,
+      "share_of_total_contribution": -0.06053118881011816
+    }
+  ],
+  "risk_by_group": [
+    {
+      "dimension": "Age band",
+      "grp": "21-24",
+      "customers": 2685,
+      "actual_default_rate": 0.2718808193668529,
+      "avg_pd": 0.2726497892044889,
+      "total_ecl": 596555.658907291,
+      "total_ead": 88977075.30000015,
+      "ecl_rate": 0.006704599548770402
+    },
+    {
+      "dimension": "Age band",
+      "grp": "25-34",
+      "customers": 13011,
+      "actual_default_rate": 0.20298209207593576,
+      "avg_pd": 0.20503708669779344,
+      "total_ecl": 4238110.103967435,
+      "total_ead": 833318033.2000012,
+      "ecl_rate": 0.0050858255013308505
+    },
+    {
+      "dimension": "Age band",
+      "grp": "35-44",
+      "customers": 9018,
+      "actual_default_rate": 0.218562874251497,
+      "avg_pd": 0.2154518936914122,
+      "total_ecl": 3405434.1139431847,
+      "total_ead": 620593836.0999968,
+      "ecl_rate": 0.0054873798543407775
+    },
+    {
+      "dimension": "Age band",
+      "grp": "45-54",
+      "customers": 4233,
+      "actual_default_rate": 0.23931018190408693,
+      "avg_pd": 0.23714204698312724,
+      "total_ecl": 1579596.7563412997,
+      "total_ead": 276120728.2000001,
+      "ecl_rate": 0.005720674310250132
+    },
+    {
+      "dimension": "Age band",
+      "grp": "55+",
+      "customers": 1053,
+      "actual_default_rate": 0.2668566001899335,
+      "avg_pd": 0.26816632119031697,
+      "total_ecl": 429511.74684083986,
+      "total_ead": 69658110.10000002,
+      "ecl_rate": 0.006165997702553801
+    },
+    {
+      "dimension": "Credit limit tier",
+      "grp": "1. <50k",
+      "customers": 4311,
+      "actual_default_rate": 0.3607051728137323,
+      "avg_pd": 0.3579130526281601,
+      "total_ecl": 670005.8978290699,
+      "total_ead": 69316983.80000007,
+      "ecl_rate": 0.009665825907287517
+    },
+    {
+      "dimension": "Credit limit tier",
+      "grp": "2. 50k-150k",
+      "customers": 10979,
+      "actual_default_rate": 0.2520265962291648,
+      "avg_pd": 0.2512104990473583,
+      "total_ecl": 3610272.29923236,
+      "total_ead": 525237515.1999983,
+      "ecl_rate": 0.006873599456919317
+    },
+    {
+      "dimension": "Credit limit tier",
+      "grp": "3. 150k-300k",
+      "customers": 9593,
+      "actual_default_rate": 0.16824768060043782,
+      "avg_pd": 0.16994912037245416,
+      "total_ecl": 3578075.401285078,
+      "total_ead": 718817570.0999974,
+      "ecl_rate": 0.004977723903976525
+    },
+    {
+      "dimension": "Credit limit tier",
+      "grp": "4. 300k+",
+      "customers": 5117,
+      "actual_default_rate": 0.13679890560875513,
+      "avg_pd": 0.1363345059189507,
+      "total_ecl": 2390854.781653544,
+      "total_ead": 575295713.7999986,
+      "ecl_rate": 0.004155871014336679
+    },
+    {
+      "dimension": "Education",
+      "grp": "Graduate school",
+      "customers": 10585,
+      "actual_default_rate": 0.19234766178554558,
+      "avg_pd": 0.19154371081858443,
+      "total_ecl": 3377809.1343164267,
+      "total_ead": 691436607.1999992,
+      "ecl_rate": 0.004885204368908096
+    },
+    {
+      "dimension": "Education",
+      "grp": "High school",
+      "customers": 4917,
+      "actual_default_rate": 0.2515761643278422,
+      "avg_pd": 0.2548462464998274,
+      "total_ecl": 1673706.3263728463,
+      "total_ead": 273188831.30000013,
+      "ecl_rate": 0.00612655472922639
+    },
+    {
+      "dimension": "Education",
+      "grp": "Other",
+      "customers": 123,
+      "actual_default_rate": 0.056910569105691054,
+      "avg_pd": 0.10180674673356774,
+      "total_ecl": 22852.924663969578,
+      "total_ead": 8800166.299999997,
+      "ecl_rate": 0.0025968741822492134
+    },
+    {
+      "dimension": "Education",
+      "grp": "University",
+      "customers": 14030,
+      "actual_default_rate": 0.23734853884533144,
+      "avg_pd": 0.2354411715855816,
+      "total_ecl": 5088641.207289108,
+      "total_ead": 884855897.3000011,
+      "ecl_rate": 0.0057508134633179235
+    },
+    {
+      "dimension": "Education",
+      "grp": "Unknown",
+      "customers": 345,
+      "actual_default_rate": 0.07536231884057971,
+      "avg_pd": 0.09454428171845032,
+      "total_ecl": 86198.7873577097,
+      "total_ead": 30386280.799999982,
+      "ecl_rate": 0.0028367666291594907
+    },
+    {
+      "dimension": "Marital status",
+      "grp": "Married",
+      "customers": 13659,
+      "actual_default_rate": 0.23471703638626545,
+      "avg_pd": 0.2254487365870776,
+      "total_ecl": 5102692.830596261,
+      "total_ead": 905206535.4999983,
+      "ecl_rate": 0.005637048154737135
+    },
+    {
+      "dimension": "Marital status",
+      "grp": "Other",
+      "customers": 323,
+      "actual_default_rate": 0.26006191950464397,
+      "avg_pd": 0.24804368932632737,
+      "total_ecl": 90273.25778128956,
+      "total_ead": 15759285.200000014,
+      "ecl_rate": 0.0057282583972329834
+    },
+    {
+      "dimension": "Marital status",
+      "grp": "Single",
+      "customers": 15964,
+      "actual_default_rate": 0.20928338762214985,
+      "avg_pd": 0.21648542200777526,
+      "total_ecl": 5046128.092125676,
+      "total_ead": 965992385.7000026,
+      "ecl_rate": 0.005223776260378097
+    },
+    {
+      "dimension": "Marital status",
+      "grp": "Unknown",
+      "customers": 54,
+      "actual_default_rate": 0.09259259259259259,
+      "avg_pd": 0.24913214469911496,
+      "total_ecl": 10114.199496797604,
+      "total_ead": 1709576.4999999995,
+      "ecl_rate": 0.005916201759206217
+    },
+    {
+      "dimension": "Segment",
+      "grp": "Delinquent revolvers",
+      "customers": 3156,
+      "actual_default_rate": 0.6280101394169835,
+      "avg_pd": 0.6255544570164439,
+      "total_ecl": 3014207.18305976,
+      "total_ead": 177498230.50000012,
+      "ecl_rate": 0.01698161820863762
+    },
+    {
+      "dimension": "Segment",
+      "grp": "Dormant / low use",
+      "customers": 3564,
+      "actual_default_rate": 0.234006734006734,
+      "avg_pd": 0.23523525772044265,
+      "total_ecl": 565990.0068358734,
+      "total_ead": 96722390.59999987,
+      "ecl_rate": 0.005851695799957555
+    },
+    {
+      "dimension": "Segment",
+      "grp": "Heavy-spend revolvers",
+      "customers": 4026,
+      "actual_default_rate": 0.20268256333830104,
+      "avg_pd": 0.20144439456865804,
+      "total_ecl": 1812118.099775887,
+      "total_ead": 344270731.9999996,
+      "ecl_rate": 0.0052636426258154565
+    },
+    {
+      "dimension": "Segment",
+      "grp": "Revolvers",
+      "customers": 12073,
+      "actual_default_rate": 0.16325685413733124,
+      "avg_pd": 0.16570741302742586,
+      "total_ecl": 4191042.0746571985,
+      "total_ead": 1047537934.1999991,
+      "ecl_rate": 0.004000849933761952
+    },
+    {
+      "dimension": "Segment",
+      "grp": "Transactors",
+      "customers": 7181,
+      "actual_default_rate": 0.14385183122127837,
+      "avg_pd": 0.13991362798608628,
+      "total_ecl": 665851.0156713352,
+      "total_ead": 222638495.6000013,
+      "ecl_rate": 0.002990727249916484
+    },
+    {
+      "dimension": "Sex",
+      "grp": "Female",
+      "customers": 18112,
+      "actual_default_rate": 0.20776280918727916,
+      "avg_pd": 0.21214902514976858,
+      "total_ecl": 5814584.65176706,
+      "total_ead": 1111960683.2000036,
+      "ecl_rate": 0.005229127917575136
+    },
+    {
+      "dimension": "Sex",
+      "grp": "Male",
+      "customers": 11888,
+      "actual_default_rate": 0.2416722745625841,
+      "avg_pd": 0.23439650689170283,
+      "total_ecl": 4434623.7282329835,
+      "total_ead": 776707099.6999961,
+      "ecl_rate": 0.0057095187232688634
+    }
+  ],
+  "profit_sensitivity": [
+    {
+      "annual_loss_rate": 0.04,
+      "monthly_revenue": 21995435.694540024,
+      "monthly_ecl": 5124604.190000026,
+      "monthly_risk_adj_contribution": 12564251.039359946,
+      "share_loss_making": 0.2441
+    },
+    {
+      "annual_loss_rate": 0.08,
+      "monthly_revenue": 21995435.694540024,
+      "monthly_ecl": 10249208.380000051,
+      "monthly_risk_adj_contribution": 7439646.849359939,
+      "share_loss_making": 0.38106666666666666
+    },
+    {
+      "annual_loss_rate": 0.12,
+      "monthly_revenue": 21995435.694540024,
+      "monthly_ecl": 15373812.5700001,
+      "monthly_risk_adj_contribution": 2315042.659359965,
+      "share_loss_making": 0.48723333333333335
+    }
+  ],
+  "retention_cost_sensitivity": [
+    {
+      "contact_cost": 10,
+      "save_rate": 0.1,
+      "customers_worth_contacting": 497,
+      "total_expected_net_benefit": 9356.44695012635
+    },
+    {
+      "contact_cost": 10,
+      "save_rate": 0.2,
+      "customers_worth_contacting": 960,
+      "total_expected_net_benefit": 25637.55600596768
+    },
+    {
+      "contact_cost": 50,
+      "save_rate": 0.2,
+      "customers_worth_contacting": 160,
+      "total_expected_net_benefit": 10230.409019479763
+    },
+    {
+      "contact_cost": 100,
+      "save_rate": 0.2,
+      "customers_worth_contacting": 56,
+      "total_expected_net_benefit": 5507.093341509327
+    },
+    {
+      "contact_cost": 100,
+      "save_rate": 0.3,
+      "customers_worth_contacting": 104,
+      "total_expected_net_benefit": 12091.84094226095
+    }
+  ],
+  "significance_tests": {
+    "default_rate_by_segment": {
+      "chi2": 3527.9486252694114,
+      "dof": 4,
+      "p_value": 0.0
+    },
+    "default_rate_by_limit_tier": {
+      "chi2": 915.3155704996134,
+      "dof": 3,
+      "p_value": 4.2164645425317186e-198
+    },
+    "default_rate_by_sex": {
+      "chi2": 47.708796890621116,
+      "dof": 1,
+      "p_value": 4.944678999412026e-12
+    },
+    "dormancy_rate_by_segment_jul_snapshot": {
+      "chi2": 5854.981643055577,
+      "dof": 4,
+      "p_value": 0.0
+    }
+  }
+}

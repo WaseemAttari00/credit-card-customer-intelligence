@@ -1,0 +1,21 @@
+feature,mean_abs_shap,feature_label,rank
+util_t,0.004343402578439481,Utilization (this month),1
+bill_t,0.0035887271784976658,Balance (this month),2
+bill_tm1,0.003359687114517835,Balance (last month),3
+util_tm1,0.0025402634590059045,Utilization (last month),4
+payment_tm1,0.0023562178075214823,Payment (last month),5
+payment_ratio_t,0.001933660688527523,Share of last bill paid,6
+charges_to_limit_t,0.0018771642265231147,New charges / limit,7
+charges_t,0.0017523557660486966,New charges (this month),8
+balance_retention_t,0.0014223167868595914,Balance kept vs last month,9
+util_change,0.0013401323243941172,Utilization change,10
+zero_balance_tm1,0.0012841842694687883,Zero balance last month,11
+payment_to_limit_t,0.001056964516940021,Payment / limit,12
+payment_t,0.0009615307444577215,Payment (this month),13
+credit_limit,0.0009289763005520616,Credit limit,14
+delinquent_60plus_t,0.0009178818036050967,60+ days late now,15
+paid_in_full_t,0.0005272474504334146,Paid in full this month,16
+education,0.0005272033828149978,Education,17
+age,0.0004884110103099639,Age,18
+delinquent_60plus_tm1,9.877754372951465e-05,60+ days late last month,19
+zero_balance_t,3.505988055676767e-05,Zero balance this month,20

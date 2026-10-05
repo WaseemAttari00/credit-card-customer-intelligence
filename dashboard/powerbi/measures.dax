@@ -1,0 +1,89 @@
+// DAX measures for the Credit Card Customer Intelligence dashboard.
+// Create them in a dedicated "_Measures" table (Home > Enter data > empty table).
+// Table names match the CSV files in dashboard/powerbi/data (or the Postgres tables listed in README.md).
+// All NTD amounts with "Est" are estimates built on the assumptions in the 'assumptions' table.
+
+// ---------------------------------------------------------------- portfolio size
+Customers = DISTINCTCOUNT ( customer_360[customer_id] )
+
+// active = owed something or made new charges in Sep (same definition as the dormancy model)
+Active Customers (Sep) =
+CALCULATE ( [Customers], NOT ISBLANK ( customer_360[churn_score] ) )
+
+Balance Outstanding (Sep) =
+SUMX ( customer_360, MAX ( customer_360[balance_sep], 0 ) )
+
+Total Credit Limit = SUM ( customer_360[credit_limit] )
+
+Portfolio Utilization = DIVIDE ( [Balance Outstanding (Sep)], [Total Credit Limit] )
+
+// monthly trend (use with dim_month[month_label] on the axis)
+Balance by Month =
+SUMX ( customer_monthly, MAX ( customer_monthly[bill_amount], 0 ) )
+
+Payments by Month = SUM ( customer_monthly[payment_amount] )
+
+60+ DPD Rate =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( customer_monthly ), customer_monthly[delinquency_bucket] IN { "2. 60 DPD", "3. 90+ DPD" } ),
+    COUNTROWS ( customer_monthly )
+)
+
+// ---------------------------------------------------------------- economics (estimates, monthly NTD)
+Est Monthly Revenue = SUM ( customer_360[est_monthly_revenue] )
+
+Est Monthly Operating Cost = SUM ( customer_360[est_monthly_operating_cost] )
+
+Est Contribution Before Losses = SUM ( customer_360[est_contribution_before_losses] )
+
+Expected Credit Loss (Next Month) = SUM ( customer_360[ecl_next_month] )
+
+Est Risk-Adj Contribution = SUM ( customer_360[est_risk_adjusted_contribution] )
+
+Est Risk-Adj Contribution (Annualised) = [Est Risk-Adj Contribution] * 12
+
+Avg Risk-Adj Contribution per Customer = DIVIDE ( [Est Risk-Adj Contribution], [Customers] )
+
+Loss-Making Share =
+DIVIDE (
+    CALCULATE ( [Customers], customer_360[est_risk_adjusted_contribution] < 0 ),
+    [Customers]
+)
+
+ECL as % of Revenue = DIVIDE ( [Expected Credit Loss (Next Month)], [Est Monthly Revenue] )
+
+// ---------------------------------------------------------------- risk
+Actual Default Rate (Oct) =
+DIVIDE ( CALCULATE ( [Customers], customer_360[actual_default_oct] = TRUE () ), [Customers] )
+
+Avg Predicted PD = AVERAGE ( customer_360[pd_score] )
+
+PD Calibration Gap = [Avg Predicted PD] - [Actual Default Rate (Oct)]
+
+EAD = SUM ( customer_360[ead_estimate] )
+
+ECL Rate on EAD = DIVIDE ( [Expected Credit Loss (Next Month)], [EAD] )
+
+Very High Risk Customers =
+CALCULATE ( [Customers], customer_360[pd_risk_band] = "4. Very high (50%+)" )
+
+// ---------------------------------------------------------------- dormancy / retention
+Avg Dormancy Probability = AVERAGE ( customer_360[churn_score] )   // blank for customers not active in Sep
+
+Expected Value at Risk (12m) = SUM ( retention_priority[expected_value_at_risk] )
+
+Contact Now Customers =
+CALCULATE ( COUNTROWS ( retention_priority ), retention_priority[priority_tier] = "1. Contact now" )
+
+Contact Now Expected Net Benefit =
+CALCULATE ( SUM ( retention_priority[expected_net_benefit] ), retention_priority[priority_tier] = "1. Contact now" )
+
+Excluded for Credit Risk =
+CALCULATE ( COUNTROWS ( retention_priority ), retention_priority[priority_tier] = "5. Exclude - high credit risk" )
+
+// ---------------------------------------------------------------- model performance (Risk page)
+Lift Observed Rate = AVERAGE ( model_lift[observed_rate] )
+Lift Predicted Rate = AVERAGE ( model_lift[mean_predicted] )
+Test ROC-AUC (Chosen PD Model) =
+CALCULATE ( MAX ( model_comparison[value] ),
+    model_comparison[task] = "pd", model_comparison[model] = "lightgbm", model_comparison[metric] = "test_roc_auc" )
