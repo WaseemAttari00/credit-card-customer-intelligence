@@ -9,7 +9,7 @@ sizes are observed.
 1. **The book grew and got riskier over the six months.** Balances rose 32% (NT$1.17B to NT$1.54B), portfolio
    utilization went from 23% to 31%, and the share of accounts 60+ days past due rose from about 10% to 15%
    (Apr to Aug). 22.1% of customers missed their October payment.
-2. **Ordinary revolvers carry the portfolio.** Five behavioural segments:
+2. **Ordinary revolvers carry the portfolio.** Five behavioral segments:
 
    | Segment | Customers | Oct default rate | Avg P(dormant) | Est. monthly risk-adj. contribution |
    |---|---:|---:|---:|---:|
@@ -60,21 +60,23 @@ sizes are observed.
 - **What:** randomly hold out part of the priority list (e.g. 20-30%) and compare 2-month activity and
   contribution between contacted and held-out customers.
 - **Why:** this measures the real save rate and incremental profit, which replaces the biggest assumption in the
-  prioritisation.
-- **Risk:** small samples - with ~1,000 contacts and a ~8% base rate, only large effects will be detectable, so
-  the test may need to run over several months.
+  prioritization.
+- **Risk:** small samples. The ~960 customers worth a NT$10 contact have an average predicted dormancy of only
+  about 3%, so roughly 29 of them would go dormant and a 20% save rate would keep about 6. One campaign can't
+  measure that reliably; the test would need to be repeated over several months or run on a larger group.
 
 ### 4. Review pricing/limits for delinquent revolvers rather than growing them
 - **What:** no limit increases or balance-transfer offers for this segment; review limits on accounts with
   sustained 60+ DPD.
 - **Who:** delinquent revolvers (3,156) and other customers in the "Exclude - high credit risk" tier.
 - **Evidence:** 62.8% Oct default rate; they generate 29% of expected loss on 11% of balances.
-- **Risk:** about half of newly 60+ DPD accounts cure within two months (cohort analysis), so blanket limit cuts
+- **Risk:** more than half (56-59%) of newly 60+ DPD accounts cure within two months (cohort analysis), so blanket limit cuts
   would also hit customers who would have recovered. Use PD rather than segment membership for the decision.
 
 ### 5. Keep the profitable revolvers profitable
-- **What:** monitor revolvers' utilization trend and payment ratio, and avoid actions that push them to pay down
-  (they rarely go dormant, so retention offers aren't needed).
+- **What:** monitor revolvers' utilization trend and payment ratio, and avoid actions that push them to pay down.
+  They rarely go dormant, so broad retention offers aren't needed; the few who show signs of winding down are
+  already at the top of the contact list (finding 4).
 - **Who:** revolvers and heavy-spend revolvers with PD < 30%.
 - **Why:** they generate most of the estimated contribution.
 - **Risk:** their value comes mostly from interest on revolving balances, so it is also where credit risk builds

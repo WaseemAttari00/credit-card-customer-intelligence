@@ -5,7 +5,7 @@ from src.db import connect, read_sql
 
 @pytest.fixture(scope="session")
 def db():
-    """Live DB connection. Tests that need the built warehouse are skipped if it isn't there."""
+    """Live DB connection. Tests that need the built database are skipped if it isn't there."""
     try:
         conn = connect()
     except Exception as exc:  # pragma: no cover

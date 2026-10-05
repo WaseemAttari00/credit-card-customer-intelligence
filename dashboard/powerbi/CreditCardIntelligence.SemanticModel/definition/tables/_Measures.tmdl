@@ -61,10 +61,10 @@ table _Measures
 		displayFolder: Economics (est.)
 		lineageTag: f436103b-96a3-522b-ab15-4cb687236c2b
 
-	measure 'Est Risk-Adj Contribution (Annualised)' = [Est Risk-Adj Contribution] * 12
+	measure 'Est Risk-Adj Contribution (Annualized)' = [Est Risk-Adj Contribution] * 12
 		formatString: \N\T\$#,0
 		displayFolder: Economics (est.)
-		lineageTag: 6a88f619-a37e-538f-902e-ec2a7a59df8e
+		lineageTag: d4501bf1-9d64-5eb6-83f6-cb3474357953
 
 	measure 'Avg Risk-Adj Contribution per Customer' = DIVIDE([Est Risk-Adj Contribution], [Customers])
 		formatString: \N\T\$#,0

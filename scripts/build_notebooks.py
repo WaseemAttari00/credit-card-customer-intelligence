@@ -53,7 +53,7 @@ project depends on."""),
                   (SELECT avg(defaulted_next_month::int) FROM core.fact_default_outcome) AS oct_default_rate''')"""),
     md("""## 2. Data-quality findings
 Results of the validation step (full report in `docs/data_quality_report.md`). Nothing failed an ERROR check,
-so no rows were quarantined. The warnings are mostly real customer behaviour (overpayment, over-limit) plus
+so no rows were quarantined. The warnings are mostly real customer behavior (overpayment, over-limit) plus
 two coding issues."""),
     code("""read_sql('''SELECT check_name, severity, rows_failed, pct_failed FROM audit.dq_check_results
             WHERE run_id = (SELECT max(run_id) FROM audit.pipeline_runs WHERE status = 'loaded')
@@ -200,7 +200,7 @@ Its raw probabilities were already well calibrated, so no calibration layer was 
     code("""pd.DataFrame(R["pd"]["lift"])"""),
     md("""## 2. Choosing a threshold
 Probabilities feed the expected-loss calculation directly, but a risk team acting on a flag needs a cut-off.
-With calibrated probabilities the cost-minimising threshold is `C_FP / (C_FP + C_FN)`. C_FN (average loss on a
+With calibrated probabilities the cost-minimizing threshold is `C_FP / (C_FP + C_FN)`. C_FN (average loss on a
 missed defaulter) comes from the data and assumptions; C_FP (cost of acting on a good customer) is unknown, so
 I show a range:"""),
     code("""pd.DataFrame(R["pd"]["cost_table"])"""),
@@ -253,7 +253,7 @@ for r in ex.itertuples():
 ]
 
 BUSINESS = [
-    md("""# 04 - Segmentation, profitability and retention prioritisation
+    md("""# 04 - Segmentation, profitability and retention prioritization
 
 Turns the model outputs into business answers: who are the customers, who makes money, where is the risk,
 and who should the retention team contact?"""),
@@ -261,7 +261,7 @@ and who should the retention team contact?"""),
 R = json.load(open("../reports/model_results.json"))
 q = lambda name: read_sql(open(f"../sql/analysis/{name}.sql").read())"""),
     md("""## 1. Segmentation
-K-means on six behaviour ratios (utilization, share of bill paid, share of months paid in full, share of months
+K-means on six behavior ratios (utilization, share of bill paid, share of months paid in full, share of months
 inactive, new charges / limit, share of months 60+ DPD). k was chosen with silhouette and bootstrap stability:"""),
     code("""pd.DataFrame(R["segmentation"]["k_selection"])"""),
     md("""k = 4 has the best silhouette and k = 5 is close; both are very stable (ARI ~0.99). I used k = 5 because it
@@ -284,7 +284,7 @@ from about a quarter to about half, so customer-level profitability should be re
 precise numbers."""),
     md("## 3. Where is the credit risk?"),
     code("""q("risk_by_group")"""),
-    md("## 4. Retention prioritisation"),
+    md("## 4. Retention prioritization"),
     code("""read_sql('''SELECT priority_tier, count(*) customers, avg(churn_score) avg_p_dormant, avg(pd_score) avg_pd,
                   avg(est_risk_adjusted_contribution) avg_value, sum(expected_value_at_risk) value_at_risk
            FROM mart.retention_priority GROUP BY 1 ORDER BY 1''')"""),

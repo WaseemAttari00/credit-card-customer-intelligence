@@ -7,7 +7,7 @@ Numbers are from the final pipeline run (`reports/model_results.json`, `reports/
 
 | Candidate | Why not / why |
 |---|---|
-| **UCI Default of Credit Card Clients** (chosen) | Real (anonymised) card data, CC BY 4.0, direct download. 30,000 customers x 6 months of balances, payments and repayment status, plus a genuine next-month default label. Both models can score the *same* customers, which the retention prioritisation needs. |
+| **UCI Default of Credit Card Clients** (chosen) | Real (anonymized) card data, CC BY 4.0, direct download. 30,000 customers x 6 months of balances, payments and repayment status, plus a genuine next-month default label. Both models can score the *same* customers, which the retention prioritization needs. |
 | Kaggle "BankChurners" | Has a churn label but it is a single snapshot whose 12-month features overlap the period in which customers were leaving (e.g. transaction count over the last 12 months), so a model would partly learn from the churn itself. Unclear provenance, Kaggle login required, and it can't be joined to a risk dataset. |
 | IBM TabFormer card transactions | Synthetic. Rich transactions and merchants but no payments or defaults, and the user/card files need a Kaggle login. |
 
@@ -29,7 +29,7 @@ in this project.
   flag). The PD model still uses September status as a feature, because every customer is scored on the same
   coding.
 - **The default label is broad.** 13-17% of customers who didn't use the card or paid in full in September are
-  labelled as defaulting in October. It is best read as "missed or late payment next month", not as a credit
+  labeled as defaulting in October. It is best read as "missed or late payment next month", not as a credit
   loss. This mattered a lot for the expected-loss calculation (section 6).
 - **Undocumented codes, duplicates, credit balances, over-limit balances.** See `docs/data_quality_report.md`.
   None of them justified dropping rows.
@@ -49,7 +49,7 @@ in this project.
 ## 4. PD (credit risk) model
 
 - **Target:** missed payment in Oct 2005. **Features:** Apr-Sep 2005 (31 features: delinquency history,
-  utilization level and trend, payment behaviour, activity, available credit, age, education).
+  utilization level and trend, payment behavior, activity, available credit, age, education).
 - **Excluded inputs:** sex and marital status (lenders generally can't use them in credit decisions). After
   training I checked calibration by sex anyway: mean predicted PD 21.2% vs actual 20.8% for women, 23.4% vs
   24.2% for men.
@@ -67,7 +67,7 @@ in this project.
   points.
 - **Scores used downstream are out-of-fold:** each customer's PD comes from a model that didn't see their label.
 - **Thresholds.** Expected-loss calculations use the probability directly. For a yes/no risk flag, the
-  cost-minimising threshold is `C_FP / (C_FP + C_FN)`. C_FN (average loss on a missed defaulter, NT$1,532) comes
+  cost-minimizing threshold is `C_FP / (C_FP + C_FN)`. C_FN (average loss on a missed defaulter, NT$1,532) comes
   from the data and loss assumptions; C_FP is unknown, so `reports/tables/pd_cost_thresholds.csv` shows
   thresholds of 0.25, 0.57 and 0.77 for false-positive costs of NT$500, 2,000 and 5,000.
 
@@ -117,7 +117,7 @@ on the cohort analysis (25-43% of accounts that reach 60+ DPD are still 60+ thre
 monthly expected loss of NT$97M against NT$22M of revenue (an annual loss rate of ~75% of balances) and 98% of
 customers loss-making. The cause is the broad default label: most "defaults" in this data are late payments
 that cure. Since the data has no charge-offs, the *level* of losses has to come from outside, so I switched to a
-top-down calibration: the charge-off share is set so that the portfolio's annualised expected loss equals 8% of
+top-down calibration: the charge-off share is set so that the portfolio's annualized expected loss equals 8% of
 balances. For reference, US bank card charge-off rates were about 3% in early 2006 and peaked at about 10.5% in
 2009 (Federal Reserve data); Taiwan was in a card-debt crisis in 2005-06. The implied charge-off share is 3.4%.
 PD x EAD still decides *which* customers carry the loss.
@@ -132,7 +132,7 @@ customers is 24% / 38% / 49%. Customer-level profit is best read as a ranking.
 
 ## 7. Segmentation
 
-K-means on six behaviour ratios (no demographics, no model scores). k from 2 to 8 compared on silhouette and
+K-means on six behavior ratios (no demographics, no model scores). k from 2 to 8 compared on silhouette and
 bootstrap stability (adjusted Rand index between the full fit and fits on resamples). k = 4 had the best
 silhouette (0.449), k = 5 was close (0.430); both had ARI ~0.99. I chose k = 5 because the extra cluster
 separates heavy-spend revolvers (new charges ~20% of limit per month vs ~5% for other revolvers), whose
@@ -140,7 +140,7 @@ economics differ. Segment names are assigned from centroids by rule so they don'
 cluster numbers. The segments match standard card personas (transactors, revolvers, delinquent, dormant), which
 is a sanity check rather than proof.
 
-## 8. Retention prioritisation
+## 8. Retention prioritization
 
 For each active customer in September:
 
@@ -154,7 +154,7 @@ Rules, in order: PD >= 50% -> exclude (risk management's job, not marketing's); 
 net benefit <= 0 -> monitor; otherwise rank by net benefit and contact up to 10% of active customers.
 
 Save rate (20%) and contact cost (NT$100) are assumptions. The model predicts who is likely to go dormant, not
-who responds to an offer, so a real campaign needs a randomised holdout to measure uplift.
+who responds to an offer, so a real campaign needs a randomized holdout to measure uplift.
 
 ## 9. Testing
 
@@ -172,7 +172,7 @@ all PD and dormancy scores.
 ## 10. Power BI layer
 
 The dashboard is a Power BI Project (`.pbip`), which stores the semantic model as TMDL and the report as PBIR
-JSON - both plain text. `scripts/build_powerbi.py` generates it from the warehouse: table definitions come from
+JSON - both plain text. `scripts/build_powerbi.py` generates it from the database: table definitions come from
 Postgres `information_schema`, while the 42 DAX measures and 52 visuals are defined in the script. I validated the
 generated report files against Microsoft's published JSON schemas before opening them, and a test checks that
 every field and measure reference resolves. Visuals use explicit measures (not implicit column sums), and the

@@ -27,7 +27,7 @@ WITH agg AS (
         AVG(f.bill_amount)                                                   AS bill_avg_6m,
         COUNT(*) FILTER (WHERE f.is_over_limit)                              AS months_over_limit,
         COUNT(*) FILTER (WHERE f.has_credit_balance)                         AS months_credit_balance,
-        -- payment behaviour (months 2-6, where a previous bill exists)
+        -- payment behavior (months 2-6, where a previous bill exists)
         AVG(LEAST(f.payment_ratio, 1))                                       AS payment_ratio_avg,  -- capped at 1 so overpayments don't dominate
         MAX(LEAST(f.payment_ratio, 1)) FILTER (WHERE f.month_index = 6)      AS payment_ratio_latest,
         MIN(LEAST(f.payment_ratio, 1))                                       AS payment_ratio_min,

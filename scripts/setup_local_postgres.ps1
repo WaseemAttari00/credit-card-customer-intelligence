@@ -6,10 +6,6 @@
 # Prerequisite: download the "Windows x86-64" binaries zip from
 # https://www.enterprisedb.com/download-postgresql-binaries and unzip it so that
 # $PG_HOME\bin\pg_ctl.exe exists (default PG_HOME = %USERPROFILE%\pgsql).
-#
-# Defaults live under %USERPROFILE%, not %LOCALAPPDATA%: Windows redirects AppData writes made by
-# packaged (MSIX) apps into a private per-app folder, so files created from inside such an app's
-# terminal would be invisible to a normal terminal and to Power BI.
 param([switch]$Stop, [int]$Port = 5432, [string]$Database = "cc_intel")
 
 $ErrorActionPreference = "Stop"
@@ -38,7 +34,7 @@ if (-not (Test-Path (Join-Path $pgData "PG_VERSION"))) {
     $url = "postgresql://postgres:$password@localhost:$Port/$Database"
     $lines = @("DATABASE_URL=$url", "PG_HOME=$pgHome", "PG_DATA=$pgData")
     Set-Content -Path $envFile -Value $lines -Encoding ascii
-    Write-Host "Initialised cluster at $pgData; wrote DATABASE_URL to .env"
+    Write-Host "Initialized cluster at $pgData; wrote DATABASE_URL to .env"
 }
 
 $status = & (Join-Path $bin "pg_ctl.exe") -D $pgData status 2>$null

@@ -1,6 +1,6 @@
 # Power BI dashboard
 
-A four-page Power BI report built on the PostgreSQL warehouse. It is stored as a **Power BI Project
+A four-page Power BI report built on the project's PostgreSQL database. It is stored as a **Power BI Project
 (`.pbip`)**: the data model is in TMDL and the report in PBIR, both plain text, so the dashboard is
 version-controlled like the rest of the code and changes show up as readable diffs.
 
@@ -9,7 +9,7 @@ version-controlled like the rest of the code and changes show up as readable dif
 | 1 Executive overview | How big is the book, is it getting riskier, and where does the value come from? |
 | 2 Customer analytics | Who are our customers and how do they use the card? |
 | 3 Risk analytics | Where is the credit risk, how much could it cost, and does the PD model rank it well? |
-| 4 Retention decision support | Which customers should we prioritise, and why? |
+| 4 Retention decision support | Which customers should we prioritize, and why? |
 
 `CreditCardIntelligence.pdf` is a full export of the report, and `screenshots/` has one image per page.
 
@@ -22,7 +22,7 @@ version-controlled like the rest of the code and changes show up as readable dif
 
 I created an empty project once in Power BI Desktop (File > Save as > `.pbip`), so the files use the exact
 format versions of the installed Desktop (2.158, September 2026). `scripts/build_powerbi.py` then generates
-the rest from the warehouse:
+the rest from the database:
 
 - **Semantic model** (`CreditCardIntelligence.SemanticModel/definition/`)
   - 11 import tables read straight from Postgres (`mart`, `core` and `ml` schemas). Column data types are
@@ -42,7 +42,7 @@ the rest from the warehouse:
   - A `_Measures` table with 42 DAX measures in display folders (Portfolio, Economics, Customers, Risk,
     Retention). Visuals use measures rather than implicit column sums, so every number has one definition.
 - **Report** (`CreditCardIntelligence.Report/definition/`): 4 pages and 52 visuals. Every chart title is the
-  business question it answers. The colour theme (`theme.json`) is a colour-blind-checked palette.
+  business question it answers. The color theme (`theme.json`) is a color-blind-checked palette.
 
 Before opening it in Power BI, I validated all generated report files against Microsoft's published JSON schemas.
 `tests/test_powerbi.py` also checks that every field a visual uses and every column a measure references exists

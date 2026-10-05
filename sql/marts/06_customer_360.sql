@@ -1,7 +1,7 @@
 -- mart.customer_360
 -- Grain: one row per customer. PK: customer_id.
 -- One wide table with everything known about a customer as of Sep 2005: profile,
--- behaviour, segment, model scores, estimated profitability and (separately labelled)
+-- behavior, segment, model scores, estimated profitability and (separately labeled)
 -- the actual Oct outcome. This is the main table behind the Power BI customer pages.
 DROP TABLE IF EXISTS mart.customer_360 CASCADE;
 
@@ -16,7 +16,7 @@ SELECT
     c.marital_status,
     c.credit_limit,
     c.limit_tier,
-    -- behaviour (observed / calculated from observed)
+    -- behavior (observed / calculated from observed)
     r.bill_latest                       AS balance_sep,
     r.util_latest                       AS utilization_sep,
     r.util_avg_6m                       AS utilization_avg_6m,

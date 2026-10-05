@@ -69,7 +69,7 @@ core.dim_customer --+-- core.fact_account_month (customer_id, month_index)
 ### `features.customer_risk_features` (PD model input)
 - **Grain:** one row per customer, as of end of Sep 2005. **PK:** `customer_id`.
 - Observation window Apr-Sep. Delinquency history (latest/worst status, months delinquent, months since last
-  delinquency, current streak), utilization level and trend (`REGR_SLOPE`), payment behaviour (share of bill
+  delinquency, current streak), utilization level and trend (`REGR_SLOPE`), payment behavior (share of bill
   paid, months paid in full, months with no payment), activity (average new charges and trend, inactive months),
   available credit.
 
@@ -85,7 +85,7 @@ core.dim_customer --+-- core.fact_account_month (customer_id, month_index)
 | `ml.pd_scores` | customer | Out-of-fold PD, decile, risk band, top SHAP drivers up/down (text) |
 | `ml.churn_scores` | customer active in Sep | P(dormant in Oct-Nov), decile, SHAP drivers |
 | `ml.customer_segments` | customer | K-means cluster id and segment name |
-| `ml.segment_profile` | segment | Average behaviour ratios per segment |
+| `ml.segment_profile` | segment | Average behavior ratios per segment |
 | `ml.model_comparison` | task x model x metric | CV and test metrics for every candidate model |
 | `ml.model_lift` | task x decile | Test-set lift table |
 | `ml.model_calibration` | task x bin | Predicted vs observed rate |
@@ -101,7 +101,7 @@ core.dim_customer --+-- core.fact_account_month (customer_id, month_index)
 | `mart.delinquency_cohorts` | cohort month x months since entry | both | What happens after an account first reaches 60+ DPD |
 | `mart.assumptions` | parameter | `parameter` | Profitability/retention assumptions copied from `config.yaml` |
 | `mart.customer_profitability` | customer | `customer_id` | Monthly revenue, costs, expected loss and risk-adjusted contribution (see below) |
-| `mart.customer_360` | customer | `customer_id` | One wide row per customer: profile, behaviour, segment, scores, profitability, actual outcome |
+| `mart.customer_360` | customer | `customer_id` | One wide row per customer: profile, behavior, segment, scores, profitability, actual outcome |
 | `mart.retention_priority` | customer active in Sep | `customer_id` | Value at risk, expected net benefit of a retention contact, priority tier and reason |
 | `mart.retention_budget_curve` | contact cost x customers contacted (every 5th, up to 10% of active) | both | Cumulative expected net benefit when contacting in priority order, for NT$10/50/100 per contact |
 | `mart.value_concentration` | percentile of customers | `top_percent_of_customers` | Cumulative share of estimated contribution from the top X% (Pareto view) |
@@ -111,5 +111,5 @@ core.dim_customer --+-- core.fact_account_month (customer_id, month_index)
 - `est_*` calculated from observed data plus assumptions in `mart.assumptions` (APR, interchange, fees, rewards,
   funding and servicing costs).
 - `pd_score`, `ead_estimate`, `ecl_next_month` model-based. `chargeoff_share` is calibrated so the portfolio's
-  annualised expected loss equals `target_annual_loss_rate`.
+  annualized expected loss equals `target_annual_loss_rate`.
 - None of this is accounting profit; it is an educational estimate for ranking customers.

@@ -58,7 +58,7 @@ profitability:
   late_fee: 300               # charged in each month the account is delinquent (status >= 1)
   rewards_rate: 0.005         # rewards cost as a share of purchase volume
   cost_of_funds_annual: 0.02  # funding cost on the drawn balance
-  servicing_cost_monthly: 30  # statements, call centre, systems per open account
+  servicing_cost_monthly: 30  # statements, call center, systems per open account
   # Expected loss = PD x EAD x LGD
   # Share of the undrawn limit assumed drawn before default. 12-month CCFs for cards are usually
   # much higher, but the PD here is for ONE month, so little extra drawdown is possible. With 0.30
@@ -66,9 +66,9 @@ profitability:
   ccf: 0.10
   lgd: 0.80                   # loss share for an unsecured card balance that is charged off
   # The dataset's "default" label is a missed payment next month, not a charge-off, and it is
-  # very broad (even ~14% of pay-in-full customers are labelled as defaulting). The data has no
+  # very broad (even ~14% of pay-in-full customers are labeled as defaulting). The data has no
   # charge-offs, so the LEVEL of losses comes from an outside benchmark: the share of default
-  # events that become charge-offs is calibrated so the portfolio's annualised expected loss equals
+  # events that become charge-offs is calibrated so the portfolio's annualized expected loss equals
   # this rate on outstanding balances. PD x EAD still decides WHICH customers carry the loss.
   # Benchmark: US bank card charge-off rates were ~3% in early 2006 and peaked at ~10.5% in 2009
   # (Federal Reserve). Taiwan was in a card-debt crisis in 2005-06, so I use 8% (4% / 12% as sensitivities).

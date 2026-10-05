@@ -34,3 +34,6 @@ Thumbs.db
 # Packaged Power BI file (17 MB binary with embedded data). The .pbip text files are the
 # version-controlled source; the .pbix is attached to a GitHub Release instead.
 *.pbix
+
+# Personal notes kept out of the public repo
+private/

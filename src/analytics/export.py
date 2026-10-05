@@ -1,6 +1,6 @@
 """Export step: business-analysis tables, significance tests and the data-quality report.
 Everything is read from Postgres, so the files always reflect the latest pipeline run.
-(The Power BI project reads the warehouse directly; see scripts/build_powerbi.py.)"""
+(The Power BI project reads the database directly; see scripts/build_powerbi.py.)"""
 from __future__ import annotations
 
 import json
@@ -19,12 +19,21 @@ ANALYSIS_QUERIES = ["executive_kpis", "segment_summary", "risk_by_group", "reten
                     "profit_sensitivity", "retention_cost_sensitivity"]
 
 
+def significant(df: pd.DataFrame, digits: int = 10) -> pd.DataFrame:
+    """Round float columns to 10 significant digits. Postgres sums floats in parallel, so the last digits
+    can differ between runs; rounding keeps the committed report files from changing on every rerun."""
+    out = df.copy()
+    for c in out.select_dtypes("float").columns:
+        out[c] = out[c].map(lambda v: float(f"{v:.{digits}g}") if pd.notna(v) else v)
+    return out
+
+
 def run_analysis(conn) -> dict[str, pd.DataFrame]:
     out = path("reports/tables")
     out.mkdir(parents=True, exist_ok=True)
     results = {}
     for name in ANALYSIS_QUERIES:
-        df = read_sql(path(f"sql/analysis/{name}.sql").read_text(encoding="utf-8"), conn)
+        df = significant(read_sql(path(f"sql/analysis/{name}.sql").read_text(encoding="utf-8"), conn))
         df.to_csv(out / f"analysis_{name}.csv", index=False)
         results[name] = df
     return results

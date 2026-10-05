@@ -1,4 +1,4 @@
--- Two small curve tables used by the dashboard (and by sql/analysis), materialised so that
+-- Two small curve tables used by the dashboard (and by sql/analysis), materialized so that
 -- Power BI reads them like any other table.
 
 -- mart.retention_budget_curve

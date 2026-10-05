@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Five behavioural segments from K-means on utilization, payment, activity and delinquency ratios. Who are our customers and how do they use the card?",
+                    "value": "Five behavioral segments from K-means on utilization, payment, activity and delinquency ratios. Who are our customers and how do they use the card?",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#52514e"

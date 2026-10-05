@@ -1,6 +1,6 @@
-"""Behavioural customer segmentation with K-means.
+"""Behavioral customer segmentation with K-means.
 
-Inputs are six behaviour ratios (no demographics, no model scores), so the segments describe
+Inputs are six behavior ratios (no demographics, no model scores), so the segments describe
 how customers use the card. I checked k = 2..8 with silhouette score and bootstrap stability
 (adjusted Rand index between the full-data clustering and clusterings fit on resamples).
 k = 4 has the best silhouette (0.44) and k = 5 is close (0.42); both are very stable (ARI ~0.99).

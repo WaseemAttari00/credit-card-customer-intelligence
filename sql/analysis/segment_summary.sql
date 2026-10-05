@@ -1,4 +1,4 @@
--- One row per behavioural segment: size, risk, dormancy, and estimated economics.
+-- One row per behavioral segment: size, risk, dormancy, and estimated economics.
 SELECT
     c.segment,
     COUNT(*)                                                         AS customers,

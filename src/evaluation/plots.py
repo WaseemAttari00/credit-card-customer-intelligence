@@ -1,6 +1,6 @@
 """Figures for model evaluation (saved to reports/figures/).
 
-One shared style: thin marks, recessive grid, fixed categorical colour order.
+One shared style: thin marks, recessive grid, fixed categorical color order.
 """
 from __future__ import annotations
 

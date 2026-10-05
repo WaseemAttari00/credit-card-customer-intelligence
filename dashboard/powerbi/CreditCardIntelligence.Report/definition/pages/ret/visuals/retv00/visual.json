@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Which customers should we prioritise, and why? Expected net benefit = P(dormant) x save rate x 12-month risk-adjusted value - contact cost. High-PD customers go to risk management instead.",
+                    "value": "Which customers should we prioritize, and why? Expected net benefit = P(dormant) x save rate x 12-month risk-adjusted value - contact cost. High-PD customers go to risk management instead.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#52514e"

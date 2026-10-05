@@ -1,4 +1,4 @@
-"""Generates the Power BI project (PBIP) in dashboard/powerbi/ from the warehouse.
+"""Generates the Power BI project (PBIP) in dashboard/powerbi/ from the database.
 
     python scripts/build_powerbi.py
 
@@ -78,7 +78,7 @@ MEASURES = [
     ("Economics (est.)", "Est Contribution Before Losses", "SUM(customer_360[est_contribution_before_losses])", MONEY),
     ("Economics (est.)", "Expected Credit Loss (Next Month)", "SUM(customer_360[ecl_next_month])", MONEY),
     ("Economics (est.)", "Est Risk-Adj Contribution", "SUM(customer_360[est_risk_adjusted_contribution])", MONEY),
-    ("Economics (est.)", "Est Risk-Adj Contribution (Annualised)", "[Est Risk-Adj Contribution] * 12", MONEY),
+    ("Economics (est.)", "Est Risk-Adj Contribution (Annualized)", "[Est Risk-Adj Contribution] * 12", MONEY),
     ("Economics (est.)", "Avg Risk-Adj Contribution per Customer", "DIVIDE([Est Risk-Adj Contribution], [Customers])", MONEY),
     ("Economics (est.)", "Loss-Making Share",
      "DIVIDE(CALCULATE([Customers], customer_360[est_risk_adjusted_contribution] < 0), [Customers])", PCT1),
@@ -427,7 +427,7 @@ def build_pages(cfg) -> list[Page]:
     # ---- Page 2
     p2 = Page("cust", "2 Customer analytics")
     p2.header("Customer analytics",
-              "Five behavioural segments from K-means on utilization, payment, activity and delinquency ratios. "
+              "Five behavioral segments from K-means on utilization, payment, activity and delinquency ratios. "
               "Who are our customers and how do they use the card?",
               [(tier, "Credit limit tier"), (col("customer_360", "age_band"), "Age band")])
     p2.add("clusteredBarChart", 16, 72, 306, 310, roles={"Category": [seg], "Y": [m("Customers")]},
@@ -502,7 +502,7 @@ def build_pages(cfg) -> list[Page]:
     r = cfg["retention"]
     p4 = Page("ret", "4 Retention decision support")
     p4.header("Retention decision support",
-              "Which customers should we prioritise, and why? Expected net benefit = P(dormant) x save rate x "
+              "Which customers should we prioritize, and why? Expected net benefit = P(dormant) x save rate x "
               "12-month risk-adjusted value - contact cost. High-PD customers go to risk management instead.",
               [(col("retention_priority", "priority_tier"), "Priority tier"), (col("retention_priority", "segment"), "Segment")])
     p4.cards(72, 84, [("Active Customers Scored", "Active customers scored"), ("Contact Now Customers", "Contact now"),
@@ -568,7 +568,7 @@ def write_report(cfg) -> None:
         "$schema": PAGES_SCHEMA, "pageOrder": [p.key for p in pages], "activePageName": pages[0].key}, indent=2),
         encoding="utf-8")
 
-    # custom theme (validated colour-blind-safe palette) on top of the built-in base theme
+    # custom theme (validated color-blind-safe palette) on top of the built-in base theme
     reg = RPT / "StaticResources" / "RegisteredResources"
     reg.mkdir(parents=True, exist_ok=True)
     shutil.copy(PBI / "theme.json", reg / "CreditCardTheme.json")
