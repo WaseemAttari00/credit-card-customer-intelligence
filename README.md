@@ -24,7 +24,7 @@ and then decides who is worth a retention contact and who should go to risk mana
 I wanted a project that looks like real work with messy business data rather than a single modeling notebook:
 data that needs checking and reshaping, a database that does real work, two models with different time designs,
 business assumptions that have to be stated, and a decision at the end. I also wanted to be careful about what the data can
-and cannot support.
+and cannot support. The project was completed as a course requirement during my graduate studies.
 
 ## 3. Dataset
 
